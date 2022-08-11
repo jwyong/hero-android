@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.InputType"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.registration.login.LoginActi"/>
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/secondaryBG">
+
+            <!--chatbubble 1-->
+            <TextView
+                android:id="@+id/tv_chat_bbl_1"
+                style="@style/regular_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/reg_main_hori"
+                android:layout_marginTop="@dimen/reg_main_verti"
+                android:layout_marginBottom="@dimen/reg_main_verti"
+                android:background="@drawable/bg_chat_bubble_right_btm_right"
+                android:paddingStart="@dimen/chat_bubble_padding_hori"
+                android:paddingTop="@dimen/chat_bubble_padding_verti"
+                android:paddingEnd="@dimen/chat_bubble_padding_hori"
+                android:paddingBottom="@dimen/chat_bubble_padding_verti"
+                android:text="@string/login_title"
+                android:textColor="@color/black"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/iv_penguin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_chat_bbl_1"/>
+
+            <!--penguin img-->
+            <ImageView
+                android:id="@+id/iv_penguin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/reg_main_hori"
+                android:src="@drawable/ic_profile_img"
+                app:layout_constraintBottom_toTopOf="@id/card_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="1"/>
+
+            <!--card bg-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_round_corner_top_30dp"
+                android:backgroundTint="@color/lightBlue1"
+                android:paddingStart="@dimen/reg_main_hori"
+                android:paddingTop="@dimen/reg_main_verti"
+                android:paddingEnd="@dimen/reg_main_hori"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <!--email-->
+                <include
+                    android:id="@+id/incl_email"
+                    layout="@layout/incl_form_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/reg_main_verti"
+                    app:layout_constraintTop_toTopOf="parent"
+                    bind:inputType="@{(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS)}"
+                    bind:label="@{@string/email_add}"
+                    bind:maxLength='@{100}'
+                    bind:obsEditTxt="@={data.obsEmailText}"
+                    bind:obsIsError="@{data.obsIsErrorEmail}"/>
+
+                <!--password-->
+                <include
+                    android:id="@+id/et_pword"
+                    layout="@layout/incl_form_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    app:layout_constraintBottom_toTopOf="@id/btn_accept"
+                    app:layout_constraintTop_toBottomOf="@id/incl_email"
+                    bind:inputType="@{(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)}"
+                    bind:label="@{@string/password}"
+                    bind:maxLength='@{20}'
+                    bind:obsEditTxt="@{data.obsPwordText}"
+                    bind:obsIsError="@{data.obsIsErrorPword}"/>
+
+                <!--login button-->
+                <Button
+                    android:id="@+id/btn_accept"
+                    style="@style/reg_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@{data.isBtnEnabled ? @drawable/bg_round_corner_8dp : @drawable/bg_round_corner_8dp_white50a}"
+                    android:backgroundTint="@color/blueAccent1"
+                    android:enabled="@{data.isBtnEnabled}"
+                    android:onClick="@{data::loginBtn}"
+                    android:text="@string/login"
+                    app:layout_constraintBottom_toTopOf="@id/tv_already"
+                    app:layout_constraintTop_toBottomOf="@id/et_pword"/>
+
+                <!--dont hv account?-->
+                <TextView
+                    android:id="@+id/tv_already"
+                    style="@style/reg_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/reg_main_verti"
+                    android:text="@string/dont_have_acc"
+                    android:textColor="@color/grey8"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_login"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    style="@style/reg_link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{data::signupBtn}"
+                    android:padding="5dp"
+                    android:text="@string/signup"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_already"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_already"
+                    app:layout_constraintTop_toTopOf="@id/tv_already"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

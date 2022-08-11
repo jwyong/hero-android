@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.appt.appt_schedule.frags.ApptScheFrag1Confirm"/>
+
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/appt_item_padding_verti"
+        android:layout_marginBottom="@dimen/appt_item_padding_verti"
+        android:background="@drawable/bg_round_corner_10dp"
+        android:backgroundTint="@color/lightBlue1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/reg_main_hori"
+            android:paddingTop="@dimen/reg_main_verti"
+            android:paddingEnd="@dimen/reg_main_hori">
+
+            <!--date-->
+            <include
+                layout="@layout/incl_appt_item"
+                app:img="@{@drawable/ic_profile_img}"
+                app:title="@{data.obsDateStr}"/>
+
+            <!--time-->
+            <include
+                layout="@layout/incl_appt_item"
+                app:img="@{@drawable/ic_profile_img}"
+                app:title="@{data.obsTimeStr}"/>
+
+            <!--address-->
+            <TextView
+                style="@style/regular_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/appt_item_padding_verti"
+                android:layout_marginBottom="@dimen/appt_item_padding_verti"
+                android:text="@{data.obsAddress}"
+                android:textColor="@color/black"
+                tools:text="69 Choa Chu Kang Loop #02-12, 689672, Singapore"/>
+
+            <!--map-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:glideImg="@{data.obsMapImgURL}"
+                tools:src="@drawable/ic_profile_img"/>
+
+            <!--confirm btn-->
+            <Button
+                android:id="@+id/btn_edit"
+                style="@style/btn_r5_medium_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/appt_item_padding_verti"
+                android:backgroundTint="@color/white"
+                android:onClick="@{data::confirmBtnOnClick}"
+                android:text="@string/appt_confirm"
+                android:textColor="@color/purple2"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                style="@style/regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/appt_item_padding_hori"
+                android:paddingTop="@dimen/appt_item_padding_verti"
+                android:paddingEnd="@dimen/appt_item_padding_hori"
+                android:paddingBottom="@dimen/appt_item_padding_verti"
+                android:text="@string/add_to_cal"
+                android:textColor="@color/grey9"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

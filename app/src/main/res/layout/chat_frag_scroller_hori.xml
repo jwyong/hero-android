@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.chat.fragments.scroller_hori.ChatFragScrollerHori"/>
+
+        <variable
+            name="chatActi"
+            type="com.ntu.hero.chat.ChatActi"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <!--title card-->
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/regular_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/chat_room_main_padding_verti"
+            android:background="@drawable/bg_round_corner_5dp"
+            android:backgroundTint="@{chatActi.obsBgColour}"
+            android:onClick="@{data::confirmOnClick}"
+            android:paddingStart="@dimen/chat_room_main_padding_hori"
+            android:paddingTop="10dp"
+            android:paddingEnd="@dimen/chat_room_main_padding_hori"
+            android:paddingBottom="10dp"
+            android:text="@{`I started at ` + Integer.toString(data.obsSelNumber + 1)}"
+            android:textColor="@{chatActi.obsTextColour}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:backgroundTint="@color/primaryBG"
+            tools:text="I started at 16"
+            tools:textColor="@color/white"/>
+
+        <!--hori numbers-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adapter="@{data.obsAdapter}"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/v_btm_bg"
+            app:layout_constraintTop_toTopOf="@id/tv_sel_number"
+            tools:listitem="@layout/chat_frag_scroller_hori_item"/>
+
+        <!--btm bg-->
+        <View
+            android:id="@+id/v_btm_bg"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@{chatActi.obsBgColour}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:background="@color/primaryBG"/>
+
+        <!--selected number-->
+        <TextView
+            android:id="@+id/tv_sel_number"
+            style="@style/bold_20"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:text="@{Integer.toString(data.obsSelNumber + 1)}"
+            android:textAlignment="center"
+            android:textColor="@{chatActi.obsBgColour}"
+            app:layout_constraintBottom_toTopOf="@id/v_circular_scroller"
+            app:layout_constraintEnd_toEndOf="@id/v_circular_scroller"
+            app:layout_constraintStart_toStartOf="@id/v_circular_scroller"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="16"
+            tools:textColor="@color/primaryBG"/>
+
+        <!--circular scroller-->
+        <View
+            android:id="@+id/v_circular_scroller"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/bg_circle_scroller"
+            android:backgroundTint="@{chatActi.obsBgColour}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!--circular scroller white-->
+        <View
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_circle_scroller_white"
+            app:layout_constraintBottom_toBottomOf="@id/v_circular_scroller"
+            app:layout_constraintEnd_toEndOf="@id/v_circular_scroller"
+            app:layout_constraintStart_toStartOf="@id/v_circular_scroller"
+            app:layout_constraintTop_toTopOf="@id/v_circular_scroller"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

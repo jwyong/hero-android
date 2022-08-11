@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.chat.ChatSubmitActi"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryBG"
+        android:paddingStart="@dimen/reg_main_hori"
+        android:paddingEnd="@dimen/reg_main_hori">
+
+        <!--guideline hori-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_h_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@dimen/reg_title_gl_h_percent"/>
+
+        <!-- title -->
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/bold_19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{data.obsTitleText}"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/gl_h_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/gl_h_1"
+            tools:text="Great Job Tiffany, \nyou finished the Questionnarie"/>
+
+        <ImageView
+            android:id="@+id/iv_penguin"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_profile_img"
+            app:layout_constraintEnd_toEndOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"/>
+
+        <!--you are awesome-->
+        <TextView
+            android:id="@+id/tv_desc"
+            style="@style/regular_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@{data.obsTitleText}"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/iv_penguin"
+            tools:text="Your are awesome!!!"/>
+
+        <!--guideline hori-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_h_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@dimen/reg_title_gl_h_percent_btm"/>
+
+        <Button
+            android:id="@+id/btn_accept"
+            style="@style/btn_r5_medium_14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blueAccent1"
+            android:onClick="@{data::btnOnClick}"
+            android:text="@string/back_dashboard"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/gl_h_2"
+            app:layout_constraintTop_toTopOf="@id/gl_h_2"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.sql.entity.Appointment"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_round_corner_10dp"
+        android:backgroundTint="@color/lightBlue1"
+        android:padding="20dp">
+
+        <!--title-->
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/bold_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{data.apptTitle}"
+            android:textColor="@color/secondaryBG"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@id/iv_icon"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Doctor Appointment"/>
+
+        <!--date/time-->
+        <TextView
+            android:id="@+id/tv_desc"
+            style="@style/regular_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="10dp"
+            android:text="@{data.getFormattedDateTime(data.apptDateTime)}"
+            android:textColor="@color/primaryBG"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@id/iv_icon"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="July 2, 2019 10:00AM"/>
+
+        <!--read more-->
+        <TextView
+            style="@style/medium_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{data.apptDocName}"
+            android:textColor="@color/secondaryBG"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_desc"
+            tools:text="Dr. Raymond Sheep"/>
+
+        <!--img-->
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="20dp"
+            android:glideImg="@{data.apptDocImg}"
+            android:src="@drawable/ic_profile_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

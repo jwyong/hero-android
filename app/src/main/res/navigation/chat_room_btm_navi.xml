@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/chat_room_btm_navi.xml"
+    app:startDestination="@+id/emptyFrag">
+
+    <!--empty frag-->
+    <action
+        android:id="@+id/action_to_emptyFrag"
+        app:destination="@id/emptyFrag"
+        app:enterAnim="@anim/slide_in_right"
+        />
+    <fragment
+        android:id="@+id/emptyFrag"
+        android:name="com.ntu.hero.chat.fragments.emptyFrag"
+        android:label="emptyFrag"/>
+
+    <!--2 btns hori-->
+    <action
+        android:id="@+id/action_to_chatFragBtnsHori"
+        app:destination="@id/chatFragBtnsHori"
+        app:enterAnim="@anim/slide_in_right"
+        />
+    <fragment
+        android:id="@+id/chatFragBtnsHori"
+        android:name="com.ntu.hero.chat.fragments.ChatFragBtnsHori"
+        android:label="ChatFragBtnsHori"/>
+
+    <!--circles hori-->
+    <action
+        android:id="@+id/action_to_chatFragCirclesHori"
+        app:destination="@id/chatFragCirclesHori"
+        app:enterAnim="@anim/slide_in_right"
+        />
+    <fragment
+        android:id="@+id/chatFragCirclesHori"
+        android:name="com.ntu.hero.chat.fragments.circles_hori.ChatFragCirclesHori"
+        android:label="ChatFragCirclesHori"/>
+
+    <!--btns verti-->
+    <action
+        android:id="@+id/action_to_chatFragBtnsVerti"
+        app:destination="@id/chatFragBtnsVerti"
+        app:enterAnim="@anim/slide_up"
+        />
+    <fragment
+        android:id="@+id/chatFragBtnsVerti"
+        android:name="com.ntu.hero.chat.fragments.btns_verti.ChatFragBtnsVerti"
+        android:label="ChatFragBtnsVerti"/>
+
+    <!--scroller hori-->
+    <action
+        android:id="@+id/action_to_chatFragScrollerHori"
+        app:destination="@id/chatFragScrollerHori"
+        app:enterAnim="@anim/slide_in_right"
+        />
+    <fragment
+        android:id="@+id/chatFragScrollerHori"
+        android:name="com.ntu.hero.chat.fragments.scroller_hori.ChatFragScrollerHori"
+        android:label="ChatFragScrollerHori"/>
+
+    <!--selections verti-->
+    <action
+        android:id="@+id/action_to_chatFragSelVerti"
+        app:destination="@id/chatFragSelVerti"
+        app:enterAnim="@anim/slide_in_right"
+        />
+    <fragment
+        android:id="@+id/chatFragSelVerti"
+        android:name="com.ntu.hero.chat.fragments.selection_verti.ChatFragSelVerti"
+        android:label="ChatFragSelVerti"/>
+
+    <!--free text-->
+    <action
+        android:id="@+id/action_to_chatFragFreeText"
+        app:destination="@id/chatFragFreeText"
+        app:enterAnim="@anim/slide_in_right"
+        />
+    <fragment
+        android:id="@+id/chatFragFreeText"
+        android:name="com.ntu.hero.chat.fragments.ChatFragFreeText"
+        android:label="ChatFragFreeText"/>
+
+    <!--single btn-->
+    <action
+        android:id="@+id/action_to_chatFragSingleBtn"
+        app:destination="@id/chatFragSingleBtn"
+        app:enterAnim="@anim/slide_in_right"
+        />
+    <fragment
+        android:id="@+id/chatFragSingleBtn"
+        android:name="com.ntu.hero.chat.fragments.ChatFragBtnSingle"
+        android:label="ChatFragSingleBtn"/>
+</navigation>

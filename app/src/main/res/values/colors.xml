@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--basics-->
+    <color name="white">#FFFFFF</color>
+    <color name="white00a">#00FFFFFF</color>
+    <color name="white30a">#30FFFFFF</color>
+    <color name="white50a">#50FFFFFF</color>
+    <color name="white70a">#70FFFFFF</color>
+
+    <color name="black">#000000</color>
+    <color name="black10a">#10000000</color>
+    <color name="black30a">#30000000</color>
+    <color name="black50a">#50000000</color>
+    <color name="black70a">#70000000</color>
+    <color name="black90a">#90000000</color>
+
+    <!--dark blue-->
+    <color name="primaryBG">#273C97</color>
+    <color name="secondaryBG">#182D87</color>
+    <color name="darkBlue1">#182D87</color>
+
+    <!--light blue-->
+    <color name="blueAccent1">#34A7FC</color>
+    <color name="blueAccent2">#2FA3FC</color>
+    <color name="blueAccent3">#007aff</color>
+    <color name="lightBlue1">#DAF2FF</color>
+    <color name="lightBlue2">#D3F2FA</color>
+
+    <!--pale blue-->
+    <color name="paleBlue1">#7DABC4</color>
+
+    <!--purple-->
+    <color name="purple1">#4C228A</color>
+    <color name="purple2">#4C228B</color>
+
+    <!--grey-->
+    <color name="darkGrey1">#333333</color>
+    <color name="darkGrey2">#2F3944</color>
+    <color name="darkGrey3">#5d5840</color>
+
+    <!--brown-->
+    <color name="brown1">#935B1F</color>
+    <color name="lightBrown1">#FFAC00</color>
+    <color name="lightBrown1a10">#10FFAC00</color>
+    <color name="lightBrown1a20">#20FFAC00</color>
+    <color name="lightBrown1a30">#30FFAC00</color>
+    <color name="lightBrown1a50">#50FFAC00</color>
+    <color name="lightBrown1a70">#70FFAC00</color>
+
+    <!--orange-->
+    <color name="orange1">#FF5D29</color>
+    <color name="lightOrange1">#FFE5E1</color>
+    <color name="lightOrange1a10">#10FFE5E1</color>
+    <color name="lightOrange1a30">#30FFE5E1</color>
+    <color name="lightOrange1a50">#50FFE5E1</color>
+    <color name="lightOrange1a70">#70FFE5E1</color>
+
+
+    <!--grey shades-->
+    <color name="grey1">#F4F4F4</color>
+    <color name="grey2">#F2F2F2</color>
+    <color name="grey3">#E6E6E6</color>
+    <color name="grey4">#E0E0E0</color>
+    <color name="grey5">#d8d8d8</color>
+    <color name="grey5a20">#20d8d8d8</color>
+    <color name="grey6">#D4D4D4</color>
+    <color name="grey7">#CCCCCC</color>
+    <color name="grey8">#9a9a9a</color>
+    <color name="grey9">#999999</color>
+    <color name="grey10">#6c6c6c</color>
+    <color name="grey11">#646464</color>
+    <color name="grey12">#2F4F4F</color>
+    <color name="grey13">#708090</color>
+    <color name="grey14">#6D6E70</color>
+
+    <!--others-->
+    <color name="red">#D81B60</color>
+    <color name="divider">#E6E6E6</color>
+
+</resources>

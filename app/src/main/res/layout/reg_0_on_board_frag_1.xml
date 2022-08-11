@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.registration.reg_0_on_board.fragments.RegOnBoardFrag1" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/secondaryBG">
+
+        <!--guideline hori-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_h_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@dimen/reg_title_gl_h_percent" />
+
+        <!--guideline verti-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_v_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <!-- title -->
+        <TextView
+            android:id="@+id/tv_main_title"
+            style="@style/reg_heading_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/reg_main_hori"
+            android:text="@string/reg_0_perm_title"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/gl_h_1"
+            app:layout_constraintEnd_toStartOf="@id/gl_v_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/gl_h_1" />
+
+        <!--card bg-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/reg_main_verti"
+            android:background="@drawable/bg_round_corner_top_30dp"
+            android:backgroundTint="@color/lightBlue1"
+            android:paddingStart="@dimen/reg_main_hori"
+            android:paddingTop="@dimen/reg_main_verti"
+            android:paddingEnd="@dimen/reg_main_hori"
+            android:paddingBottom="@dimen/reg_main_verti"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_main_title">
+
+            <TextView
+                android:id="@+id/tv_main_desc"
+                style="@style/reg_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reg_0_perm_desc"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.7dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/grey4"
+                app:layout_constraintTop_toBottomOf="@id/tv_main_desc" />
+
+            <!--scrollview list of perms-->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/reg_main_verti"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toTopOf="@id/btn_accept"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="30dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/incl_perm_item"
+                        app:desc="@{@string/reg_0_perm_1_desc}"
+                        app:title="@{@string/reg_0_perm_1_title}" />
+
+                    <include
+                        layout="@layout/incl_perm_item"
+                        app:desc="@{@string/reg_0_perm_2_desc}"
+                        app:title="@{@string/reg_0_perm_2_title}" />
+
+                    <include
+                        layout="@layout/incl_perm_item"
+                        app:desc="@{@string/reg_0_perm_3_desc}"
+                        app:title="@{@string/reg_0_perm_3_title}" />
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+            <!--accept button-->
+            <Button
+                android:id="@+id/btn_accept"
+                style="@style/reg_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_round_corner_5dp"
+                android:backgroundTint="@color/blueAccent1"
+                android:onClick="@{data::acceptBtn}"
+                android:text="@string/accept"
+                app:layout_constraintBottom_toTopOf="@id/tv_dont_perm" />
+
+            <!--do not give perm-->
+            <TextView
+                android:id="@+id/tv_dont_perm"
+                style="@style/reg_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:onClick="@{data::rejectBtn}"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/do_not_perm"
+                android:textColor="@color/grey8"
+                app:layout_constraintBottom_toTopOf="@id/ll_dots"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!--dots-->
+            <LinearLayout
+                android:id="@+id/ll_dots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:background="@drawable/ic_dot"
+                    android:backgroundTint="@color/grey4" />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/ic_dot"
+                    android:backgroundTint="@color/grey4" />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/ic_dot"
+                    android:backgroundTint="@color/grey4" />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/ic_dot"
+                    android:backgroundTint="@color/blueAccent1" />
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

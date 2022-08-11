@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.welcome_back.fragments.WBFrag0TouchID"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/secondaryBG"
+        android:paddingStart="@dimen/reg_main_hori"
+        android:paddingTop="@dimen/reg_main_verti"
+        android:paddingEnd="@dimen/reg_main_hori"
+        android:paddingBottom="@dimen/reg_main_verti">
+
+        <!--chatbubble 1-->
+        <TextView
+            android:id="@+id/tv_chat_bbl_1"
+            style="@style/reg_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/reg_main_hori"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bg_chat_bubble_right_all_round"
+            android:paddingStart="@dimen/chat_bubble_padding_hori"
+            android:paddingTop="@dimen/chat_bubble_padding_verti"
+            android:paddingEnd="@dimen/chat_bubble_padding_hori"
+            android:paddingBottom="@dimen/chat_bubble_padding_verti"
+            android:text="@string/reg_1_chat_1"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/tv_chat_bbl_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
+        <!--chatbubble 2-->
+        <TextView
+            android:id="@+id/tv_chat_bbl_2"
+            style="@style/reg_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/reg_main_hori"
+            android:layout_marginBottom="@dimen/reg_main_verti"
+            android:background="@drawable/bg_chat_bubble_right_btm_right"
+            android:paddingStart="@dimen/chat_bubble_padding_hori"
+            android:paddingTop="@dimen/chat_bubble_padding_verti"
+            android:paddingEnd="@dimen/chat_bubble_padding_hori"
+            android:paddingBottom="@dimen/chat_bubble_padding_verti"
+            android:text="@string/wb_glad"
+            android:textColor="@color/black"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@id/iv_penguin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_chat_bbl_1"/>
+
+        <!--penguin img-->
+        <ImageView
+            android:id="@+id/iv_penguin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/reg_main_hori"
+            android:src="@drawable/ic_profile_img"
+            app:layout_constraintBottom_toTopOf="@id/btn_touch_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_chat_bbl_2"
+            app:layout_constraintVertical_bias="1"/>
+
+        <!--pincode btn-->
+        <Button
+            android:id="@+id/btn_pin_code"
+            style="@style/reg_btn_icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/reg_main_verti"
+            android:drawableStart="@drawable/ic_reg_0_img_0"
+            android:onClick="@{data::pinCodeBtn}"
+            android:text="@string/reg_3_0_pin_code"
+            app:layout_constraintBottom_toTopOf="@id/btn_touch_id"/>
+
+        <!--touchID btn-->
+        <Button
+            android:id="@+id/btn_touch_id"
+            style="@style/reg_btn_icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/reg_main_verti"
+            android:backgroundTint="@{data.obsShowTouchID ? @color/blueAccent1 : @color/grey8 }"
+            android:drawableStart="@drawable/ic_reg_0_img_0"
+            android:enabled="@{data.obsShowTouchID}"
+            android:onClick="@{data::touchIDBtn}"
+            android:text="@string/touch_id"
+            app:layout_constraintBottom_toTopOf="@id/tv_trouble"/>
+
+        <!--having trouble-->
+        <TextView
+            android:id="@+id/tv_trouble"
+            style="@style/reg_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/reg_main_verti"
+            android:onClick="@{data::loginBtn}"
+            android:text="@string/wb_trouble"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

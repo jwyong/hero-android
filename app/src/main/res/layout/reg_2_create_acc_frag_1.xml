@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.InputType"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.registration.reg_2_create_acc.fragments.RegCreateAccFrag1"/>
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/secondaryBG">
+
+            <!--guideline hori-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_h_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="@dimen/reg_title_gl_h_percent"/>
+
+            <!--guideline verti-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.65"/>
+
+            <!-- title -->
+            <TextView
+                android:id="@+id/tv_main_title"
+                style="@style/reg_heading_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/reg_main_hori"
+                android:text="@string/reg_2_1_title"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="@id/gl_h_1"
+                app:layout_constraintEnd_toStartOf="@id/gl_v_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/gl_h_1"/>
+
+            <!--guideline for img-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.45"/>
+
+            <!--penguin img-->
+            <ImageView
+                android:id="@+id/iv_penguin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHeight_min="wrap"
+                android:src="@drawable/ic_mascot_mobile"
+                app:layout_constraintBottom_toTopOf="@id/card_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_main_title"
+                app:layout_constraintVertical_bias="1"/>
+
+            <!--card bg-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_round_corner_top_30dp"
+                android:backgroundTint="@color/lightBlue1"
+                android:paddingStart="@dimen/reg_main_hori"
+                android:paddingTop="@dimen/reg_main_verti"
+                android:paddingEnd="@dimen/reg_main_hori"
+                android:paddingBottom="@dimen/reg_main_verti"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <!--country-->
+                <TextView
+                    android:id="@+id/tv_country"
+                    style="@style/field_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/reg_main_verti"
+                    android:text="@string/country"
+                    app:layout_constraintBottom_toTopOf="@id/ccp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <!--dropdown-->
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
+                    style="@style/spinner"
+                    contentPaddingTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:countryPreference="SG,MY,CN,AU,NZ,US,UK"
+                    app:layout_constraintBottom_toTopOf="@id/tv_phone"
+                    app:layout_constraintTop_toBottomOf="@id/tv_country"
+                    app:showFullName="true"
+                    app:textSize="14sp"/>
+
+                <!--<Spinner-->
+                <!--android:id="@+id/sp_country"-->
+                <!--style="@style/spinner"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:entries="@array/country_code_spinner"-->
+                <!--android:selectedItemPosition="@={data.obsCountryPos}"-->
+                <!--android:spinnerMode="dropdown"-->
+                <!--app:layout_constraintBottom_toTopOf="@id/tv_phone"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/tv_country"-->
+                <!--tools:listitem="@layout/spinner_text_item" />-->
+
+                <!--mobile number-->
+                <include
+                    android:id="@+id/tv_phone"
+                    layout="@layout/incl_form_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/reg_main_verti"
+                    app:layout_constraintBottom_toTopOf="@id/btn_send"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ccp"
+                    bind:hint="@{@string/mobile_number_hint}"
+                    bind:inputType="@{(InputType.TYPE_CLASS_PHONE)}"
+                    bind:label="@{@string/mobile_number}"
+                    bind:maxLength='@{12}'
+                    bind:obsEditTxt="@={data.obsPhoneNumber}"
+                    bind:obsIsError="@{data.obsIsErrorPhone}"/>
+
+                <Button
+                    android:id="@+id/btn_send"
+                    style="@style/reg_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@{data.isBtnEnabled ? @drawable/bg_round_corner_8dp : @drawable/bg_round_corner_8dp_white50a}"
+                    android:backgroundTint="@color/blueAccent1"
+                    android:enabled="@{data.isBtnEnabled}"
+                    android:onClick="@{data::sendVerificationBtn}"
+                    android:text="@string/send_otp"
+                    app:layout_constraintBottom_toTopOf="@id/tv_already"
+                    app:layout_constraintTop_toBottomOf="@id/tv_phone"/>
+
+                <TextView
+                    android:id="@+id/tv_already"
+                    style="@style/reg_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="@string/reg_2_1_send_code"
+                    android:textAlignment="center"
+                    android:textColor="@color/grey9"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/btn_send"
+                    app:layout_constraintStart_toStartOf="@id/btn_send"
+                    app:layout_constraintTop_toBottomOf="@id/btn_send"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

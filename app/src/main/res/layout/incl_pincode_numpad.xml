@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.ntu.hero.registration.reg_3_quick_login.fragments.RegQuickLoginFrag1" />
+
+        <variable
+            name="data2"
+            type="com.ntu.hero.welcome_back.fragments.WBFrag1PinCode" />
+
+        <variable
+            name="bgcolour"
+            type="int" />
+
+        <variable
+            name="number"
+            type="java.lang.String" />
+
+        <variable
+            name="alpha1"
+            type="java.lang.String" />
+
+        <variable
+            name="alpha2"
+            type="java.lang.String" />
+
+        <variable
+            name="alpha3"
+            type="java.lang.String" />
+
+        <variable
+            name="alpha4"
+            type="java.lang.String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/pincode_numpad_size"
+        android:layout_height="@dimen/pincode_numpad_size"
+        android:layout_marginTop="5dp"
+        android:onClick="@{() -> data != null ? data.numpadOnClick(number) : data2.numpadOnClick(number)}"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/sel_btn_on_touch"
+        android:clickable="true">
+
+        <!--number-->
+        <TextView
+            android:id="@+id/tv_number"
+            style="@style/pincode_numpad_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="@{number}"
+            app:layout_constraintBottom_toTopOf="@id/tv_alpha_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="2" />
+
+        <!--alphas-->
+        <TextView
+            android:id="@+id/tv_alpha_1"
+            style="@style/pincode_numpad_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{alpha1}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_alpha_2"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_number"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/tv_alpha_2"
+            style="@style/pincode_numpad_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="1dp"
+            android:text="@{alpha2}"
+            app:layout_constraintEnd_toStartOf="@id/tv_alpha_3"
+            app:layout_constraintStart_toEndOf="@id/tv_alpha_1"
+            app:layout_constraintTop_toTopOf="@id/tv_alpha_1"
+            tools:text="B" />
+
+        <TextView
+            android:id="@+id/tv_alpha_3"
+            style="@style/pincode_numpad_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="1dp"
+            android:text="@{alpha3}"
+            app:layout_constraintEnd_toStartOf="@id/tv_alpha_4"
+            app:layout_constraintStart_toEndOf="@id/tv_alpha_2"
+            app:layout_constraintTop_toTopOf="@id/tv_alpha_1"
+            tools:text="C" />
+
+        <TextView
+            android:id="@+id/tv_alpha_4"
+            style="@style/pincode_numpad_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="1dp"
+            android:text="@{alpha4}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_alpha_3"
+            app:layout_constraintTop_toTopOf="@id/tv_alpha_1"
+            tools:text="D" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

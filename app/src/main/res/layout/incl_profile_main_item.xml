@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="java.lang.String"/>
+
+        <variable
+            name="desc"
+            type="String"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.profile.frags.ProfileFrag0Main"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_round_corner_10dp"
+        android:backgroundTint="@color/lightBrown1a20"
+        android:onClick="@{(v) -> data.profileItemOnclick(v, title)}"
+        android:paddingStart="20dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="15dp">
+
+        <!--title-->
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/bold_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{title}"
+            android:textColor="@color/darkGrey3"
+            app:layout_constraintBottom_toTopOf="@id/tv_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/profile_settings"/>
+
+        <!--desc-->
+        <TextView
+            android:id="@+id/tv_desc"
+            style="@style/regular_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:alpha="0.6"
+            android:text="@{title}"
+            android:textColor="@color/darkGrey3"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_btn_right"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="@string/profile_settings_desc"/>
+
+        <!--right arrow-->
+        <ImageView
+            android:id="@+id/iv_btn_right"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:contentDescription="@{title}"
+            android:rotation="270"
+            android:src="@drawable/ic_arrow_drop_down_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

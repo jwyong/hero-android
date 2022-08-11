@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.api.api_models.ScheItemModel"/>
+
+        <variable
+            name="adapter"
+            type="com.ntu.hero.chat.fragments.circles_hori.ApptScheTimeAdapter"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <!--date-->
+        <TextView
+            style="@style/bold_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@{data.scheDate}"
+            android:textColor="@color/grey9"
+            tools:text="Monday, July 1, 2019"/>
+
+        <!--time list-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adapter="@{adapter}"
+            android:background="@drawable/bg_round_corner_10dp"
+            android:backgroundTint="@color/lightBlue1"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/appt_sche_frag0_item_time"/>
+
+    </LinearLayout>
+
+
+</layout>

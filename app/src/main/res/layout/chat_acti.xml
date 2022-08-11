@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.chat.ChatActi"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <!--bg for toolbar-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/secondaryBG"
+            app:layout_constraintBottom_toBottomOf="@id/gl_h_1"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!--guideline for toolbar bg-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_h_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3"/>
+
+        <!--back text-->
+        <TextView
+            android:id="@+id/back_text"
+            style="@style/back_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!--percentage indicator-->
+        <ProgressBar
+            android:id="@+id/pb_percent"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/reg_main_hori"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="@{data.obsPercent}"
+            android:progressDrawable="@drawable/xml_circular_percent"
+            android:secondaryProgress="100"
+            app:layout_constraintBottom_toBottomOf="@id/back_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/back_text"
+            tools:progress="30"/>
+
+        <!--percentage text-->
+        <TextView
+            style="@style/medium_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.obsPercent + `%`}"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/pb_percent"
+            app:layout_constraintEnd_toEndOf="@id/pb_percent"
+            app:layout_constraintStart_toStartOf="@id/pb_percent"
+            app:layout_constraintTop_toTopOf="@id/pb_percent"
+            tools:text="30%"/>
+
+        <!--chat body recyclerview-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_round_corner_top_30dp"
+            android:backgroundTint="@color/white"
+            android:overScrollMode="never"
+            android:paddingStart="@dimen/chat_bubble_padding_hori"
+            android:paddingEnd="@dimen/chat_bubble_padding_hori"
+            android:paddingBottom="@dimen/chat_room_main_padding_verti"
+            app:layout_constraintBottom_toTopOf="@id/btm_frag"
+            app:layout_constraintTop_toBottomOf="@id/pb_percent"
+            tools:listitem="@layout/chat_acti_item_in"/>
+
+        <!--btm action items-->
+        <fragment
+            android:id="@+id/btm_frag"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="40"
+            app:navGraph="@navigation/chat_room_btm_navi"/>
+
+        <!--editing overlay-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black90a"
+            android:onClick="@{data::cancelEditing}"
+            android:paddingStart="@dimen/chat_bubble_padding_hori"
+            android:paddingEnd="@dimen/chat_bubble_padding_hori"
+            android:visibility="@{data.obsGotEditOverlay? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <!--clicked item-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ll_chat_bbl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_profile_img"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_profile_img"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <!--chat bubble-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/bg_chat_bubble_right_all_round"
+                    android:backgroundTint="@color/grey2"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/chat_bubble_padding_hori"
+                    android:paddingTop="@dimen/chat_bubble_padding_verti"
+                    android:paddingEnd="@dimen/chat_bubble_padding_hori"
+                    android:paddingBottom="@dimen/chat_bubble_padding_verti"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toStartOf="@id/gl_v_1"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/iv_profile_img"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!--question-->
+                    <TextView
+                        style="@style/regular_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{data.obsEditingItem.nonBoldedText}"
+                        android:textColor="@color/black"
+                        tools:text="Hello, I am Hero"/>
+
+                    <!--empty spacing-->
+                    <TextView
+                        style="@style/regular_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""/>
+
+                    <!--answer-->
+                    <TextView
+                        style="@style/bold_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{data.obsEditingItem.boldedText}"
+                        android:textColor="@color/black"
+                        tools:text="Yes, I currently smoke"/>
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_v_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.75"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--edit btn-->
+            <Button
+                android:id="@+id/btn_edit"
+                style="@style/btn_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/chat_room_main_padding_verti"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bg_round_corner_15dp"
+                android:backgroundTint="@color/white"
+                android:onClick="@{data::editBtnOnclick}"
+                android:text="@string/edit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="Edit"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

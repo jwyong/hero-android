@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reg_navi.xml"
+    app:startDestination="@id/regCreateAccFrag0">
+    <fragment
+        android:id="@+id/regCreateAccFrag0"
+        android:name="com.ntu.hero.registration.reg_2_create_acc.fragments.RegCreateAccFrag0"
+        android:label="RegCreateAccFrag0">
+        <action
+            android:id="@+id/action_regCreateAccFrag0_to_regCreateAccFrag1"
+            app:destination="@id/regCreateAccFrag1"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/regCreateAccFrag1"
+        android:name="com.ntu.hero.registration.reg_2_create_acc.fragments.RegCreateAccFrag1"
+        android:label="RegCreateAccFrag1">
+        <action
+            android:id="@+id/action_regCreateAccFrag1_to_regCreateAccFrag2"
+            app:destination="@id/regCreateAccFrag2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/regCreateAccFrag2"
+        android:name="com.ntu.hero.registration.reg_2_create_acc.fragments.RegCreateAccFrag2"
+        android:label="RegCreateAccFrag2" />
+</navigation>

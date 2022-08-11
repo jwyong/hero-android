@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.chat.fragments.ChatFragBtnsHori"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/chat_room_main_padding_hori"
+        android:paddingTop="@dimen/chat_room_main_padding_verti"
+        android:paddingEnd="@dimen/chat_room_main_padding_hori"
+        android:paddingBottom="@dimen/chat_room_main_padding_verti">
+
+        <Button
+            android:id="@+id/btn_1"
+            style="@style/btn_r5_medium_14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_round_corner_8dp"
+            android:backgroundTint="@color/blueAccent1"
+            android:onClick="@{data::btn1Onclick}"
+            android:text="@{data.obsBtn1Text}"
+            android:textColor="@color/white"
+            tools:text="btn 1 text"/>
+
+        <Button
+            android:id="@+id/btn_2"
+            style="@style/btn_r5_medium_14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_round_corner_8dp"
+            android:backgroundTint="@color/blueAccent1"
+            android:onClick="@{data::btn2Onclick}"
+            android:text="@{data.obsBtn2Text}"
+            android:textColor="@color/white"
+            tools:text="btn 2 text"/>
+
+    </LinearLayout>
+</layout>

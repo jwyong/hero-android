@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reg_navi.xml"
+    app:startDestination="@id/apptScheFragTimeList">
+    <!--initial frag-->
+    <fragment
+        android:id="@+id/apptScheFragTimeList"
+        android:name="com.ntu.hero.appt.appt_schedule.frags.ApptScheFrag0TimeList"
+        android:label="ApptScheFragTimeList">
+        <action
+            android:id="@+id/action_to_apptScheFrag1Confirm"
+            app:destination="@id/apptScheFrag1Confirm"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/apptScheFrag1Confirm"
+        android:name="com.ntu.hero.appt.appt_schedule.frags.ApptScheFrag1Confirm"
+        android:label="ApptScheFrag1Confirm"/>
+</navigation>

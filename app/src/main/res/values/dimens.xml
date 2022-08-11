@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--GLOBAL-->
+    <dimen name="chat_bubble_radius">30dp</dimen>
+    <dimen name="chat_bubble_padding_verti">15dp</dimen>
+    <dimen name="chat_bubble_padding_hori">25dp</dimen>
+    <dimen name="edit_text_height">40dp</dimen>
+    <dimen name="edit_text_padding_verti">10dp</dimen>
+    <dimen name="edit_text_padding_hori">15dp</dimen>
+    <dimen name="btn_drawable_padding_hori">20dp</dimen>
+    <dimen name="btn_padding_hori">20dp</dimen>
+
+    <!--pincode numpad-->
+    <dimen name="pincode_margin_hori">20dp</dimen>
+    <dimen name="pincode_numpad_size">65dp</dimen>
+    <dimen name="pincode_numpad_margin_ver">15dp</dimen>
+
+    <!--REGISTRATION-->
+    <dimen name="reg_main_hori">30dp</dimen>
+    <dimen name="reg_main_verti">20dp</dimen>
+    <dimen name="reg_title_gl_h_percent">0.15</dimen>
+    <dimen name="reg_title_gl_h_percent_btm">0.85</dimen>
+    <dimen name="reg_title_gl_v_percent">0.65</dimen>
+    <dimen name="reg_form_verti">10dp</dimen>
+
+    <!--chat room-->
+    <dimen name="chat_room_main_padding_hori">20dp</dimen>
+    <dimen name="chat_room_main_padding_verti">15dp</dimen>
+
+    <!--doubles-->
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_5">5dp</dimen>
+
+    <!--appt-->
+    <dimen name="appt_item_padding_hori">15dp</dimen>
+    <dimen name="appt_item_padding_verti">15dp</dimen>
+
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.chat.fragments.ChatFragBtnSingle"/>
+    </data>
+
+    <Button
+        style="@style/btn_r5_medium_14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/chat_room_main_padding_hori"
+        android:layout_marginTop="@dimen/chat_room_main_padding_verti"
+        android:layout_marginEnd="@dimen/chat_room_main_padding_hori"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/bg_round_corner_8dp"
+        android:backgroundTint="@color/blueAccent1"
+        android:onClick="@{data::btnOnclick}"
+        android:text="@{data.obsBtnText}"
+        android:textColor="@color/white"
+        tools:text="btn text"/>
+
+</layout>

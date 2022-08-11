@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.chat.fragments.selection_verti.ChatFragSelVerti" />
+
+        <variable
+            name="chatActi"
+            type="com.ntu.hero.chat.ChatActi" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/chat_room_main_padding_hori"
+                android:layout_marginEnd="@dimen/chat_room_main_padding_hori"
+                android:background="@drawable/bg_round_corner_10dp"
+                android:backgroundTint="@{chatActi.obsBgColour}"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:backgroundTint="@color/primaryBG"
+                tools:listitem="@layout/chat_frag_sel_verti_item" />
+
+            <Button
+                android:id="@+id/btn_2"
+                android:textColor="@color/white"
+                style="@style/btn_r5_medium_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/chat_room_main_padding_hori"
+                android:layout_marginTop="10dp"
+                android:onClick="@{data::doneBtnOnClick}"
+                android:layout_marginEnd="@dimen/chat_room_main_padding_hori"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_round_corner_8dp"
+                android:backgroundTint="@color/blueAccent1"
+                android:text="@string/done" />
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

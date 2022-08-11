@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="String"/>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_item_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/appt_item_padding_verti"
+        android:paddingBottom="@dimen/appt_item_padding_verti">
+
+        <!--time-->
+        <TextView
+            style="@style/medium_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@{data}"
+            android:textColor="@color/darkGrey1"
+            tools:text="10:00-11:00"/>
+
+        <!--arrow-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:rotation="270"
+            android:src="@drawable/ic_arrow_drop_down_black_24dp"/>
+
+    </RelativeLayout>
+
+
+</layout>

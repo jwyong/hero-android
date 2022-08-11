@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="data"
+            type="Integer"/>
+
+        <variable
+            name="frag"
+            type="com.ntu.hero.chat.fragments.scroller_hori.ChatFragScrollerHori"/>
+    </data>
+
+    <TextView
+        style="@style/bold_14"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:alpha="0.5"
+        android:onClick="@{() -> frag.itemOnClick(data)}"
+        android:text="@{data.toString()}"
+        android:textAlignment="center"
+        android:textColor="@color/darkGrey1"
+        tools:text="15"/>
+</layout>

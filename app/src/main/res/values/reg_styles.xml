@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="sample" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_medium</item>
+    </style>
+
+    <style name="reg_btn" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_round_corner_8dp</item>
+    </style>
+
+    <style name="reg_btn_icon" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/aktiv_grotesk_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">@dimen/btn_drawable_padding_hori</item>
+        <item name="android:paddingStart">@dimen/btn_padding_hori</item>
+        <item name="android:paddingEnd">@dimen/btn_padding_hori</item>
+        <item name="android:background">@drawable/bg_round_corner_8dp</item>
+    </style>
+
+    <style name="reg_heading_1" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="reg_heading_2" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:capitalize">characters</item>
+        <item name="android:textColor">@color/grey8</item>
+    </style>
+
+    <style name="reg_heading_3" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="reg_heading_3_black" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="reg_body" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_w01_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="reg_link" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/purple1</item>
+    </style>
+
+    <!--field labels-->
+    <style name="field_label" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_w01_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/paleBlue1</item>
+    </style>
+
+    <!--edit txt answer fields-->
+    <style name="edit_txt" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:paddingStart">@dimen/edit_text_padding_hori</item>
+        <item name="android:paddingEnd">@dimen/edit_text_padding_hori</item>
+        <item name="android:paddingTop">@dimen/edit_text_padding_verti</item>
+        <item name="android:paddingBottom">@dimen/edit_text_padding_verti</item>
+        <item name="android:fontFamily">@font/aktiv_grotesk_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!--spinners-->
+    <style name="spinner" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:background">@drawable/bg_round_corner_8dp_white50a</item>
+        <item name="android:paddingTop">@dimen/edit_text_padding_verti</item>
+        <item name="android:paddingBottom">@dimen/edit_text_padding_verti</item>
+    </style>
+
+    <!--OTP INPUTS-->
+    <!--otp boxes-->
+    <style name="otp_box" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_medium</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:background">@drawable/bg_round_corner_8dp</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+
+    <!--otp numpad-->
+    <style name="otp_numbers" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_medium</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/darkBlue1</item>
+    </style>
+
+    <!--pincode dots-->
+    <style name="pincode_dot" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:layout_width">15dp</item>
+        <item name="android:layout_height">15dp</item>
+    </style>
+
+    <style name="pincode_numpad_number" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_w01_regular</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/sel_color_white_darkblue1</item>
+    </style>
+
+    <style name="pincode_numpad_alpha" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_w01_regular</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/sel_color_white_darkblue1</item>
+    </style>
+
+    <!--general padding-->
+    <style name="padding_hori" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:paddingStart">@dimen/reg_main_hori</item>
+        <item name="android:paddingEnd">@dimen/reg_main_hori</item>
+    </style>
+
+    <style name="padding_all" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:paddingStart">@dimen/reg_main_hori</item>
+        <item name="android:paddingTop">@dimen/reg_main_verti</item>
+        <item name="android:paddingBottom">@dimen/reg_main_verti</item>
+        <item name="android:paddingEnd">@dimen/reg_main_hori</item>
+    </style>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.registration.reg_0_on_board.fragments.items.RegOnBoardFrag0Item"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/secondaryBG"
+        android:paddingStart="@dimen/reg_main_hori"
+        android:paddingTop="@dimen/reg_main_verti"
+        android:paddingEnd="@dimen/reg_main_hori"
+        android:paddingBottom="@dimen/reg_main_verti">
+
+        <!--guideline-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_h_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.55"/>
+
+        <!--img-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:contentDescription="@{data.title}"
+            android:src="@{data.imgResInt}"
+            app:layout_constraintBottom_toTopOf="@id/gl_h_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/onboarding_1"/>
+
+        <!--title-->
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/reg_heading_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@{data.title}"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/tv_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gl_h_img"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="@string/reg_0_0_title"/>
+
+        <!--desc-->
+        <TextView
+            android:id="@+id/tv_desc"
+            style="@style/reg_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.68"
+            android:text="@{data.desc}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="@string/reg_0_0_desc"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

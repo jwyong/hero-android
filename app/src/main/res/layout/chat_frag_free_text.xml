@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.chat.fragments.ChatFragFreeText"/>
+
+        <variable
+            name="chatActi"
+            type="com.ntu.hero.chat.ChatActi"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{chatActi.obsBgColour}"
+        android:padding="20dp"
+        tools:background="@color/primaryBG">
+
+        <!--text field-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_round_corner_8dp"
+            android:backgroundTint="@color/white"
+            android:minHeight="40dp">
+
+            <!--text input-->
+            <!--<com.google.android.material.textfield.TextInputLayout-->
+            <!--    android:layout_width="match_parent"-->
+            <!--    android:layout_height="wrap_content"-->
+            <!--    app:passwordToggleEnabled="true">-->
+
+            <!--    <EditText-->
+            <!--        style="@style/edit_txt"-->
+            <!--        android:layout_width="match_parent"-->
+            <!--        android:layout_height="wrap_content"-->
+
+            <!--        tools:background="@drawable/bg_round_corner_8dp_white50a" />-->
+
+            <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/btn_send"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiet_input_field"
+                    style="@style/regular_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@{data.obsIsError ? @drawable/bg_round_border_red_8dp : @drawable/bg_round_corner_8dp_white50a}"
+                    android:hint="@string/type_something"
+                    android:inputType="@{data.obsInputType}"
+                    android:paddingStart="@dimen/chat_room_main_padding_hori"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="@dimen/chat_room_main_padding_hori"
+                    android:paddingBottom="10dp"
+                    android:text="@={data.obsEditText}"
+                    android:textColor="@{data.obsIsError ? @color/red : @color/black}"
+                    android:textColorHint="@color/grey9"
+                    tools:background="@drawable/bg_round_corner_8dp_white50a"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!--send btn-->
+            <ImageView
+                android:id="@+id/btn_send"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ic_circle_fill"
+                android:backgroundTint="@{chatActi.obsBgColour}"
+                android:onClick="@{data::sendBtnOnClick}"
+                android:rotation="180"
+                android:src="@drawable/ic_arrow_drop_down_black_24dp"
+                android:tint="@{chatActi.obsTextColour}"
+                android:visibility="@{data.obsEditText.trim().length() > 0? View.VISIBLE : View.GONE}"
+                tools:backgroundTint="@color/primaryBG"
+                tools:tint="@color/white"
+                tools:visibility="visible"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>

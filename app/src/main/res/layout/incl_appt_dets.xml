@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.sql.entity.Appointment"/>
+
+        <variable
+            name="btnLabel"
+            type="java.lang.String"/>
+
+        <!--for onclick funcs-->
+        <import type="kotlin.jvm.functions.Function0"/>
+
+        <import type="kotlin.jvm.functions.Function1"/>
+
+        <import type="kotlin.Unit"/>
+
+        <variable
+            name="btnOnClick"
+            type="Function0&lt;Unit>"/>
+
+        <variable
+            name="textOnClick"
+            type="Function1&lt;Object, Unit>"/>
+
+        <!--if is appt creation, show "confirm appt" and "add to cal", else, show "resche appt" and "cancel appt"-->
+        <variable
+            name="isCreation"
+            type="Boolean"/>
+
+        <!--if is appt creation, show "confirm appt" and "add to cal", else, show "resche appt" and "cancel appt"-->
+        <variable
+            name="obsIsCancelling"
+            type="androidx.databinding.ObservableBoolean"/>
+
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round_corner_10dp"
+        android:backgroundTint="@color/lightBlue1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/reg_main_hori"
+            android:paddingTop="@dimen/reg_main_verti"
+            android:paddingEnd="@dimen/reg_main_hori">
+
+            <!--srvName-->
+            <TextView
+                style="@style/bold_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/appt_item_padding_verti"
+                android:layout_marginBottom="@dimen/appt_item_padding_verti"
+                android:text="@{data.apptSrvName}"
+                android:textAllCaps="true"
+                android:textColor="@color/darkGrey2"
+                tools:text="@string/ntu_clinic"/>
+
+            <!--date-->
+            <include
+                layout="@layout/incl_appt_item"
+                app:img="@{@drawable/ic_profile_img}"
+                app:title="@{data.getFormattedDateOnly(data.apptTimeStamp)}"/>
+
+            <!--time-->
+            <include
+                layout="@layout/incl_appt_item"
+                app:img="@{@drawable/ic_profile_img}"
+                app:title="@{data.apptTimeRangeStr}"/>
+
+            <!--address-->
+            <TextView
+                style="@style/regular_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/appt_item_padding_verti"
+                android:layout_marginBottom="@dimen/appt_item_padding_verti"
+                android:text="@{data.apptAddress}"
+                android:textColor="@color/black"
+                tools:text="69 Choa Chu Kang Loop #02-12, 689672, Singapore"/>
+
+            <!--map-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:glideImg="@{data.getMapImgUrl()}"
+                tools:src="@drawable/ic_profile_img"/>
+
+            <!--cancellation text-->
+            <TextView
+                style="@style/medium_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="@{_ -> textOnClick.invoke(1)}"
+                android:paddingStart="@dimen/appt_item_padding_hori"
+                android:paddingTop="@dimen/appt_item_padding_verti"
+                android:paddingEnd="@dimen/appt_item_padding_hori"
+                android:text="@string/cancel_appt_desc"
+                android:textAlignment="center"
+                android:textColor="@color/purple2"
+                android:visibility="@{obsIsCancelling ? View.VISIBLE : View.GONE}"
+                tools:visibility="gone"/>
+
+            <!--confirm btn-->
+            <Button
+                android:id="@+id/btn_edit"
+                style="@style/btn_r5_medium_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/appt_item_padding_verti"
+                android:layout_marginBottom="@dimen/appt_item_padding_verti"
+                android:backgroundTint="@color/white"
+                android:onClick="@{_ -> btnOnClick.invoke()}"
+                android:text="@{btnLabel}"
+                android:textColor="@color/purple2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="@string/appt_resche"/>
+
+            <!--creation: add to calendar-->
+            <TextView
+                style="@style/regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="@{_ -> textOnClick.invoke(1)}"
+                android:paddingStart="@dimen/appt_item_padding_hori"
+                android:paddingEnd="@dimen/appt_item_padding_hori"
+                android:paddingBottom="@dimen/reg_main_verti"
+                android:text="@string/add_to_cal"
+                android:textColor="@color/grey9"
+                android:visibility="@{isCreation ? View.VISIBLE : View.GONE}"
+                tools:visibility="gone"/>
+
+            <!--NOT creation: resche appt-->
+            <TextView
+                style="@style/medium_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="@{_ -> textOnClick.invoke(1)}"
+                android:paddingStart="@dimen/appt_item_padding_hori"
+                android:paddingEnd="@dimen/appt_item_padding_hori"
+                android:paddingBottom="@dimen/reg_main_verti"
+                android:text="@string/cancel_appt"
+                android:textColor="@color/purple2"
+                android:visibility="@{isCreation ? View.GONE : obsIsCancelling? View.GONE : View.VISIBLE }"/>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

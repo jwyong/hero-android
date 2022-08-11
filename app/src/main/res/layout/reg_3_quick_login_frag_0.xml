@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.registration.reg_3_quick_login.fragments.RegQuickLoginFrag0"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/secondaryBG">
+
+        <!--guideline hori-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_h_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@dimen/reg_title_gl_h_percent"/>
+
+        <!-- title -->
+        <TextView
+            android:id="@+id/tv_main_title"
+            style="@style/reg_heading_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/reg_main_hori"
+            android:text="@string/reg_3_0_title_1"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/gl_h_1"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_main_title_2"
+            style="@style/reg_heading_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/reg_main_hori"
+            android:text="@string/reg_3_0_title_2"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/gl_h_1"/>
+
+        <!--penguin img-->
+        <ImageView
+            android:id="@+id/iv_penguin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/reg_main_hori"
+            app:layout_constraintHorizontal_bias="1"
+            android:layout_marginEnd="@dimen/reg_main_hori"
+            android:gravity="bottom"
+            android:src="@drawable/ic_mascot_security"
+            app:layout_constraintBottom_toTopOf="@id/cl_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_main_title_2"
+            app:layout_constraintVertical_bias="1"/>
+
+        <!--card bg-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_round_corner_top_30dp"
+            android:backgroundTint="@color/lightBlue1"
+            android:paddingStart="@dimen/reg_main_hori"
+            android:paddingTop="@dimen/reg_main_verti"
+            android:paddingEnd="@dimen/reg_main_hori"
+            android:paddingBottom="@dimen/reg_main_verti"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_min="wrap"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintVertical_bias="1">
+
+            <LinearLayout
+                android:id="@+id/ll_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@id/ll_btns"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_card_title"
+                    style="@style/reg_heading_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/quick_login"
+                    android:textColor="@color/darkBlue1"/>
+
+                <TextView
+                    android:id="@+id/tv_card_desc"
+                    style="@style/reg_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/reg_3_0_card_desc"
+                    android:textColor="@color/paleBlue1"/>
+
+            </LinearLayout>
+
+
+            <!--3 buttons-->
+            <LinearLayout
+                android:id="@+id/ll_btns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_title">
+
+                <Button
+                    android:id="@+id/btn_pin_code"
+                    style="@style/reg_btn_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_reg_0_img_0"
+                    android:onClick="@{data::pinCodeBtn}"
+                    android:text="@string/reg_3_0_pin_code"
+                    app:layout_constraintBottom_toTopOf="@id/btn_touch_id"
+                    app:layout_constraintTop_toBottomOf="@id/tv_card_desc"
+                    app:layout_constraintVertical_chainStyle="packed"/>
+
+                <!--<Button-->
+                <!--android:id="@+id/btn_face_id"-->
+                <!--style="@style/reg_btn_icon"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="@dimen/reg_form_verti"-->
+                <!--android:drawableStart="@drawable/ic_reg_0_img_0"-->
+                <!--android:onClick="@{data::faceIDBtn}"-->
+                <!--android:text="@string/reg_3_0_face_id"-->
+                <!--app:layout_constraintBottom_toTopOf="@id/btn_touch_id"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/btn_pin_code" />-->
+
+                <Button
+                    android:id="@+id/btn_touch_id"
+                    style="@style/reg_btn_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/reg_form_verti"
+                    android:backgroundTint="@{data.obsShowTouchID ? @color/blueAccent1 : @color/grey8 }"
+                    android:drawableStart="@drawable/ic_reg_0_img_0"
+                    android:enabled="@{data.obsShowTouchID}"
+                    android:onClick="@{data::touchIDBtn}"
+                    android:text="@{data.obsTouchIDAlreadyEnabled? @string/disable_touch_id : @string/add_touch_id}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_pin_code"
+                    tools:text="@string/add_touch_id"/>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

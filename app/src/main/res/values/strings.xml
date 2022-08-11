@@ -1,0 +1,268 @@
+<resources>
+    <!--basics-->
+    <string name="app_name">Hero</string>
+    <string name="app_fp_name">com.hero.fileprovider</string>
+
+    <!--GLOBAL-->
+    <string name="onresponse_unsuccessful">Response from server unsuccessful, please try again later.</string>
+    <string name="onfailure">Connection to server failed, please try again.</string>
+    <string name="something_went_wrong">Something went wrong, please try again.</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="settings">Settings</string>
+    <string name="try_again">Please try again</string>
+    <string name="back">Back</string>
+    <string name="done">Done</string>
+    <string name="review">Review</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <string name="accept">Accept</string>
+    <string name="submit">Submit</string>
+    <string name="register">Register</string>
+    <string name="create_profile">Create Profile</string>
+    <string name="already_have_acc">Already have an account?</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="dont_have_acc">Don\'t have an account yet?</string>
+    <string name="signup">Signup</string>
+    <string name="access_code">Access code</string>
+    <string name="verification_code">Verification code</string>
+    <string name="send_otp">Send Verification Code</string>
+    <string name="resend">Resend</string>
+    <string name="otp_resent">A new OTP code has been sent to </string>
+    <string name="quick_login">Quick Login</string>
+    <string name="pin_code_no_match">Pins do not match, please re-enter</string>
+    <string name="pin_code_invalid">Pin code invalid, please try again</string>
+    <string name="enter_pin">Enter pin</string>
+    <string name="confirm_pin">Confirm pin</string>
+    <string name="pin_code_posting">Submitting 6-digit pin code&#8230;</string>
+    <string name="pin_code_confirmed">6-digit pin code confirmed!</string>
+    <string name="pin_code_verified">6-digit pin code verified!</string>
+
+    <!--ERROR CODES-->
+    <string name="e_4101">Email already exists, please login instead</string>
+    <string name="e_4102">Phone number already exists, please login instead</string>
+    <string name="e_4103">Phone number format is invalid, please check and try again</string>
+    <string name="e_4104">The access code provided is invalid, please check and try again</string>
+    <string name="e_4105">The sms token provided is invalid, please check and try again</string>
+    <string name="e_4106">Too many attempts, please try again after some time</string>
+
+    <string name="e_4131">Email not registered, please signup instead</string>
+    <string name="e_4132">The password is incorrect, please check and try again</string>
+    <string name="e_4133">Your account has been suspended, please contact us</string>
+
+    <string name="e_4161">The provided password is too short, please check and try again</string>
+    <string name="e_4162">Phone number not registered, please signup instead</string>
+    <string name="e_4163">The phone number provided does not belong to this account, please check and try again</string>
+    <string name="e_4164">The new password cannot be the same as the old one, please check and try again</string>
+
+    <!--touch id-->
+    <string name="add_touch_id">Add Touch ID</string>
+    <string name="disable_touch_id">Disable Touch ID</string>
+    <string name="disable_touch_id_confirm">Are you sure you want to disable TouchID?</string>
+    <string name="add_fingerprint">Add Fingerprint</string>
+    <string name="no_touch_hardware">This device does not support touch ID</string>
+    <string name="no_touch_id">There are no fingerprints enrolled yet. Please add at least one fingerprint in the Android Settings</string>
+    <string name="touch_perm">Please allow Hero to scan fingerprints in order to enable TouchID</string>
+    <string name="touch_perm_denied">Please enable fingerprint sensor permissions if you wish to enable TouchID for Hero</string>
+    <string name="touch_scan_title">Enable TouchID</string>
+    <string name="touch_scan_msg">Please place your finger on the fingerprint scanner to verify your touchID</string>
+    <string name="touch_id_enabled">TouchID enabled successfully!</string>
+    <string name="touch_id_verified">TouchID verified!</string>
+
+    <!--accessibility-->
+    <string name="access_srv_label">Hero Accessibility Services</string>
+    <string name="access_srv_description">Hero requires accessibility services to access user\'s health and motion data</string>
+    <string name="access_srv_perm">Hero requires accessibility permissions for health data collection. Please enable accessibility for Hero app in the Android Settings.</string>
+    <string name="no_access_srv">This device does not offer accessibility services required to collect health data</string>
+    <string name="access_srv_enabled">Accessibility services has already been enabled</string>
+
+    <!--camera, gallery-->
+    <string name="take_photo">Take Photo</string>
+    <string name="photo_gallery">Photo Gallery</string>
+    <string name="camera_perm">Please allow Hero to take photos and store images on your device storage</string>
+    <string name="gallery_perm">Please allow Hero to access photos stored on your device</string>
+    <string name="camera_perm_denied">You will not be able to use to camera without the appropriate permissions</string>
+    <string name="gallery_perm_denied">You will not be able to choose photos from your gallery without the appropriate permissions</string>
+
+    <!--forms-->
+    <string name="email_add">Email Address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="security_question">Add Security Question</string>
+    <string name="security_answer">Answer to Security Question</string>
+    <string name="country">Country</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="mobile_number_hint">ex. 3948 4958</string>
+
+    <!--welcome back-->
+    <string name="wb_glad">Glad to see you again.</string>
+    <string name="wb_trouble">Having trouble logging in?</string>
+    <string name="forgot_pin">Forgot Pin</string>
+    <string name="touch_id">TouchID</string>
+    <string name="enter_pin_title">Enter your unique pin</string>
+
+    <!--REGISTRATION-->
+    <!--Reg0_0 - onboarding-->
+    <string name="reg_0_0_title">A better you!</string>
+    <string name="reg_0_0_desc">Be a better version of yourself that will empower and assist you in your health, throughout
+     your life and academic years.</string>
+    <string name="reg_0_1_title">Be your Hero</string>
+    <string name="reg_0_1_desc">Answer to medial questionnaires regularly to keep your data up to date,
+    to improve yourself as you go. We make sure all data are private.</string>
+    <string name="reg_0_2_title">Take actions</string>
+    <string name="reg_0_2_desc">Our interventions and our medical staff are here to support you in your
+    journey to become a better version of yourself.</string>
+
+    <!--Reg0_1 - permissions-->
+    <string name="reg_0_perm_title">Request for Permission</string>
+    <string name="reg_0_perm_desc">Your data are safe with us and we will never share them. By using this
+    app, you\'re giving us permission to the following:</string>
+    <string name="reg_0_perm_1_title">Location/GPS</string>
+    <string name="reg_0_perm_1_desc">Please allow GPS permissions so that Hero can stay by your side at all times</string>
+    <string name="reg_0_perm_2_title">Storage Access</string>
+    <string name="reg_0_perm_2_desc">Hero needs to read and write data to your phone storage</string>
+    <string name="reg_0_perm_3_title">Accessibility Services</string>
+    <string name="reg_0_perm_3_desc">Other information such as motion data and screen time requires accessibility services to be enabled. Please allow this for Hero from the Android Settings</string>
+    <string name="do_not_perm">I do not give my permission</string>
+    <string name="do_not_perm_msg">Hero will not be able to function properly without the required permissions</string>
+    <string name="grant_perms">Grant Permissions</string>
+
+    <!--Reg1 - access code-->
+    <string name="reg_1_chat_1"><node>&#128075;</node> Hello, i\'m Hero!</string>
+    <string name="reg_1_chat_2">Please enter your access code so i can let you in!</string>
+    <string name="reg_1_invalid_access_code">The access code you entered is invalid. Please check and try again.</string>
+
+    <!--Reg2_0 - create account-->
+    <string name="reg_2_0_title">Create an Account</string>
+
+    <!--Reg2_1 - verify mobile-->
+    <string name="reg_2_1_title">Verify your mobile</string>
+    <string name="reg_2_1_send_code">We will send you a one time SMS message with a four digit code</string>
+
+    <!--Reg2_2 - verification code otp-->
+    <string name="reg_2_2_desc">Please type the verification code sent to </string>
+    <string name="reg_2_2_desc2">Enter your OTP code here</string>
+    <string name="reg_2_2_resend">Haven\'t received the 4-digit code?</string>
+    <string name="reg_2_2_invalid_otp">The OTP you entered is invalid. Please check and try again.</string>
+
+    <!--Reg3_0 - quick login-->
+    <string name="reg_3_0_title_1">Make Data.</string>
+    <string name="reg_3_0_title_2">More Private.</string>
+    <string name="reg_3_0_card_desc">Select one of the options for faster login</string>
+    <string name="reg_3_0_pin_code">6 Digit Code</string>
+    <string name="reg_3_0_face_id">Enable Face ID</string>
+    <string name="reg_3_0_touch_id">Enable Touch ID</string>
+
+    <!--Reg3_1 - 6-digit pincode-->
+    <string name="reg_3_1_title">Create your unique pin</string>
+    <string name="reg_3_1_popup_body">Would you like to enable TouchID login for Hero?</string>
+
+    <!--Reg4 - profile-->
+    <string name="reg_4_profile_title_1">Hello!</string>
+    <string name="reg_4_profile_title_2">What can I call you?</string>
+    <string name="reg_4_profile_field_label">Please enter your name</string>
+
+    <!--Login-->
+    <string name="login_title">Glad to see you again.</string>
+
+    <!--HOME-->
+    <string name="home_title">To ensure good health, maintain an interest in life.</string>
+    <string name="activity">ACTIVITY</string>
+    <string name="home_title_1">Questionnaires</string>
+    <string name="home_desc_1">Alcohol Habits and Consumption</string>
+    <string name="home_title_2">Smoking</string>
+    <string name="home_desc_2">Make your first steps in quitting smoking</string>
+    <string name="home_title_3">Sleeping</string>
+    <string name="home_desc_3">Your average sleeping pattern is 5.4h.</string>
+    <string name="read_more">Read More</string>
+
+    <!--CHAT-->
+    <string name="chat_setup_theme_2">Great! Please choose the colour 🎨 you want for this chat!</string>
+    <string name="chat_setup_theme_3">Nice choice of colour!</string>
+    <string name="yes_please">Yes, Please</string>
+    <string name="no_thanks">No, thanks</string>
+    <string name="type_something">Type something…</string>
+
+    <!--chat: validation-->
+    <string name="chat_vali_empty">This field must not be empty</string>
+    <string name="chat_vali_int">Please enter a numerical value</string>
+
+    <!--chat: list of question types from backend-->
+    <string name="ques_type_age">age</string>
+    <string name="ques_type_scale">scale</string>
+    <string name="ques_type_free_text">free_text</string>
+    <string name="ques_type_numerical">numerical</string>
+    <string name="ques_type_time">time</string>
+    <string name="ques_type_boolean">boolean</string>
+    <string name="ques_type_single_answer">single_answer</string>
+    <string name="ques_type_multiple_answer">multiple_answer</string>
+    <string name="ques_type_lead">lead</string>
+    <string name="ques_type_statement">statement</string>
+    <string name="ques_type_end_boolean">end_boolean</string>
+
+    <!--chat: exit-->
+    <string name="chat_exit_hero_confirm">Are you sure you want to exit? You\'ll need to start all over again the next time you answer the questionnaires.</string>
+    <string name="yes_sure">Yes, I\'m sure</string>
+    <string name="chat_exit_hero_bye">Ok, bye! <node>&#128075;</node> See you next time!</string>
+    <string name="no_stay">No, I want to stay</string>
+    <string name="chat_continue_hero">Ok, good! <node>&#128077;</node> Let\'s continue</string>
+
+    <!--chat: error handling-->
+    <string name="chat_retry">Resend Message</string>
+
+    <!--chat: review/submit-->
+    <string name="yes_submit">Yes, submit them</string>
+    <string name="back_dashboard">Back to Dashboard</string>
+
+    <!--APPT-->
+    <!--appt: main-->
+    <string name="appt_upcoming">UPCOMING</string>
+    <string name="appt_no_upcoming_msg">There are no upcoming appointments. Click on the services to create one.</string>
+    <string name="appt_services">SERVICES</string>
+    <string name="ntu_clinic">NTU Clinic</string>
+    <string name="ntu_counsel">NTU Counselling</string>
+    <string name="smoking_clinic">Smoking Clinic</string>
+
+    <!--Appt: schedule list-->
+    <string name="appointments">Appointments</string>
+    <string name="appointment">Appointment</string>
+
+    <!--Appt: widget-->
+    <string name="appt_confirm">Confirm Appointment</string>
+    <string name="appt_resche">Reschedule Appointment</string>
+    <string name="add_to_cal">Add to calendar</string>
+    <string name="cancel_appt">Cancel Appointment</string>
+    <string name="cancel_appt_desc">Are you sure you want to cancel this appointment?</string>
+    <string name="cancel_appt_confirm">Yes, Cancel it</string>
+
+    <!--PROFILE-->
+    <string name="profile">Profile</string>
+
+    <string name="profile_settings">Profile Settings</string>
+    <string name="profile_settings_desc">Edit Personal Information</string>
+    <string name="profile_security">Security &amp; Privacy</string>
+    <string name="profile_security_desc">Manage Access, Change Password</string>
+    <string name="profile_noti">Notifications</string>
+    <string name="profile_noti_desc">Allow or block app notifications</string>
+    <string name="profile_history">Medical History</string>
+    <string name="profile_history_desc">Log and edit your medical history</string>
+    <string name="profile_perms">Review Permissions</string>
+    <string name="profile_perms_desc">Review permissions status for HeroApp</string>
+
+
+    <!--MOTION DATA-->
+    <string name="md_0">IN_VEHICLE</string>
+    <string name="md_1">ON_BICYCLE</string>
+    <string name="md_2">ON_FOOT</string>
+    <string name="md_3">STILL</string>
+    <string name="md_4">UNKNOWN</string>
+    <string name="md_5">TILTING</string>
+    <string name="md_7">WALKING</string>
+    <string name="md_8">RUNNING</string>
+
+
+</resources>

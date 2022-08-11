@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.ntu.hero.registration.reg_3_quick_login.fragments.RegQuickLoginFrag1" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/secondaryBG">
+
+        <!--guideline verti-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_v_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <!-- title -->
+        <TextView
+            android:id="@+id/tv_main_title"
+            style="@style/reg_heading_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/reg_main_hori"
+            android:text="@string/reg_3_1_title"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@id/cl_card"
+            app:layout_constraintEnd_toStartOf="@id/gl_v_title"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--verti guideline start-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_v_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <!--verti guideline end-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_v_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <!--card bg-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_round_corner_top_30dp"
+            android:backgroundTint="@color/lightBlue1"
+            android:paddingStart="@dimen/reg_main_hori"
+            android:paddingTop="@dimen/reg_main_verti"
+            android:paddingEnd="@dimen/reg_main_hori"
+            android:paddingBottom="@dimen/reg_main_verti"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_min="wrap"
+            app:layout_constraintHeight_percent="0.77"
+            app:layout_constraintVertical_bias="1">
+
+            <!--enter pin-->
+            <TextSwitcher
+                android:id="@+id/tv_otp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/reg_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@{data.obsIsPinWrong ? @color/orange1 : @color/black}"
+                    tools:text="@string/enter_pin"
+                    tools:textColor="@color/black" />
+
+                <TextView
+                    style="@style/reg_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@{data.obsIsPinWrong ? @color/orange1 : @color/black}" />
+
+            </TextSwitcher>
+
+            <!--6 dots-->
+            <LinearLayout
+                android:id="@+id/tv_dot_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_otp">
+
+                <View
+                    style="@style/pincode_dot"
+                    android:background="@{data.obsBox1.length > 0 ? @drawable/ic_dot_dark_blue : @drawable/ic_circle}"
+                    tools:background="@drawable/ic_dot_dark_blue" />
+
+                <View
+                    android:id="@+id/tv_dot_2"
+                    style="@style/pincode_dot"
+                    android:layout_marginStart="@dimen/pincode_margin_hori"
+                    android:background="@{data.obsBox2.length > 0 ? @drawable/ic_dot_dark_blue : @drawable/ic_circle}"
+                    tools:background="@drawable/ic_dot_dark_blue" />
+
+                <View
+                    android:id="@+id/tv_dot_3"
+                    style="@style/pincode_dot"
+                    android:layout_marginStart="@dimen/pincode_margin_hori"
+                    android:background="@{data.obsBox3.length > 0 ? @drawable/ic_dot_dark_blue : @drawable/ic_circle}"
+                    tools:background="@drawable/ic_dot_dark_blue" />
+
+                <View
+                    android:id="@+id/tv_dot_4"
+                    style="@style/pincode_dot"
+                    android:layout_marginStart="@dimen/pincode_margin_hori"
+                    android:background="@{data.obsBox4.length > 0 ? @drawable/ic_dot_dark_blue : @drawable/ic_circle}"
+                    tools:background="@drawable/ic_dot_dark_blue" />
+
+                <View
+                    android:id="@+id/tv_dot_5"
+                    style="@style/pincode_dot"
+                    android:layout_marginStart="@dimen/pincode_margin_hori"
+                    android:background="@{data.obsBox5.length > 0 ? @drawable/ic_dot_dark_blue : @drawable/ic_circle}"
+                    tools:background="@drawable/ic_circle" />
+
+                <View
+                    android:id="@+id/tv_dot_6"
+                    style="@style/pincode_dot"
+                    android:layout_marginStart="@dimen/pincode_margin_hori"
+                    android:background="@{data.obsBox6.length > 0 ? @drawable/ic_dot_dark_blue : @drawable/ic_circle}"
+                    tools:background="@drawable/ic_circle" />
+
+            </LinearLayout>
+
+            <!--number pad-->
+            <!--verti guideline start-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1" />
+
+            <!--verti guideline end-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9" />
+
+            <!--numbers-->
+            <include
+                android:id="@+id/tv_1"
+                layout="@layout/incl_pincode_numpad"
+                android:layout_width="@dimen/pincode_numpad_size"
+                android:layout_height="@dimen/pincode_numpad_size"
+                android:layout_marginBottom="@dimen/pincode_numpad_margin_ver"
+                app:layout_constraintEnd_toStartOf="@id/tv_2"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toStartOf="@id/gl_v_3"
+                app:layout_constraintTop_toTopOf="@id/tv_2"
+                bind:data="@{data}"
+                bind:number='@{"1"}' />
+
+            <include
+                android:id="@+id/tv_2"
+                layout="@layout/incl_pincode_numpad"
+                android:layout_width="@dimen/pincode_numpad_size"
+                android:layout_height="@dimen/pincode_numpad_size"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="@dimen/pincode_numpad_margin_ver"
+                app:layout_constraintBottom_toTopOf="@id/tv_5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_dot_1"
+                app:layout_constraintVertical_chainStyle="packed"
+                bind:alpha1='@{"A"}'
+                bind:alpha2='@{"B"}'
+                bind:alpha3='@{"C"}'
+                bind:data="@{data}"
+                bind:number='@{"2"}' />
+
+            <include
+                android:id="@+id/tv_3"
+                layout="@layout/incl_pincode_numpad"
+                android:layout_width="@dimen/pincode_numpad_size"
+                android:layout_height="@dimen/pincode_numpad_size"
+                android:layout_marginBottom="@dimen/pincode_numpad_margin_ver"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_4"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@id/tv_2"
+                app:layout_constraintTop_toTopOf="@id/tv_2"
+                bind:alpha1='@{"D"}'
+                bind:alpha2='@{"E"}'
+                bind:alpha3='@{"F"}'
+                bind:data="@{data}"
+                bind:number='@{"3"}' />
+
+            <include
+                android:id="@+id/tv_4"
+                layout="@layout/incl_pincode_numpad"
+                android:layout_width="@dimen/pincode_numpad_size"
+                android:layout_height="@dimen/pincode_numpad_size"
+                android:layout_marginBottom="@dimen/pincode_numpad_margin_ver"
+                app:layout_constraintEnd_toStartOf="@id/tv_5"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toStartOf="@id/gl_v_3"
+                app:layout_constraintTop_toTopOf="@id/tv_5"
+                bind:alpha1='@{"G"}'
+                bind:alpha2='@{"H"}'
+                bind:alpha3='@{"I"}'
+                bind:data="@{data}"
+                bind:number='@{"4"}' />
+
+            <include
+                android:id="@+id/tv_5"
+                layout="@layout/incl_pincode_numpad"
+                android:layout_width="@dimen/pincode_numpad_size"
+                android:layout_height="@dimen/pincode_numpad_size"
+                android:layout_marginBottom="@dimen/pincode_numpad_margin_ver"
+                app:layout_constraintBottom_toTopOf="@id/tv_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_2"
+                bind:alpha1='@{"J"}'
+                bind:alpha2='@{"K"}'
+                bind:alpha3='@{"L"}'
+                bind:data="@{data}"
+                bind:number='@{"5"}' />
+
+            <include
+                android:id="@+id/tv_6"
+                layout="@layout/incl_pincode_numpad"
+                android:layout_width="@dimen/pincode_numpad_size"
+                android:layout_height="@dimen/pincode_numpad_size"
+                android:layout_marginBottom="@dimen/pincode_numpad_margin_ver"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_4"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@id/tv_5"
+                app:layout_constraintTop_toTopOf="@id/tv_5"
+                bind:alpha1='@{"M"}'
+                bind:alpha2='@{"N"}'
+                bind:alpha3='@{"O"}'
+                bind:data="@{data}"
+                bind:number='@{"6"}' />
+
+            <include
+                android:id="@+id/tv_7"
+                layout="@layout/incl_pincode_numpad"
+                android:layout_width="@dimen/pincode_numpad_size"
+                android:layout_height="@dimen/pincode_numpad_size"
+                android:layout_marginBottom="@dimen/pincode_numpad_margin_ver"
+                app:layout_constraintEnd_toStartOf="@id/tv_8"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toStartOf="@id/gl_v_3"
+                app:layout_constraintTop_toTopOf="@id/tv_8"
+                bind:alpha1='@{"P"}'
+                bind:alpha2='@{"Q"}'
+                bind:alpha3='@{"R"}'
+                bind:alpha4='@{"S"}'
+                bind:data="@{data}"
+                bind:number='@{"7"}' />
+
+            <include
+                android:id="@+id/tv_8"
+                layout="@layout/incl_pincode_numpad"
+                android:layout_width="@dimen/pincode_numpad_size"
+                android:layout_height="@dimen/pincode_numpad_size"
+                android:layout_marginBottom="@dimen/pincode_numpad_margin_ver"
+                app:layout_constraintBottom_toTopOf="@id/tv_0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_5"
+                bind:alpha1='@{"T"}'
+                bind:alpha2='@{"U"}'
+                bind:alpha3='@{"V"}'
+                bind:data="@{data}"
+                bind:number='@{"8"}' />
+
+            <include
+                android:id="@+id/tv_9"
+                layout="@layout/incl_pincode_numpad"
+                android:layout_width="@dimen/pincode_numpad_size"
+                android:layout_height="@dimen/pincode_numpad_size"
+                android:layout_marginBottom="@dimen/pincode_numpad_margin_ver"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_4"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@id/tv_8"
+                app:layout_constraintTop_toTopOf="@id/tv_8"
+                bind:alpha1='@{"W"}'
+                bind:alpha2='@{"X"}'
+                bind:alpha3='@{"Y"}'
+                bind:alpha4='@{"Z"}'
+                bind:data="@{data}"
+                bind:number='@{"9"}' />
+
+            <include
+                android:id="@+id/tv_0"
+                layout="@layout/incl_pincode_numpad"
+                android:layout_width="@dimen/pincode_numpad_size"
+                android:layout_height="@dimen/pincode_numpad_size"
+                android:layout_marginBottom="@dimen/pincode_numpad_margin_ver"
+                app:layout_constraintBottom_toTopOf="@id/tv_already"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_8"
+                bind:data="@{data}"
+                bind:number='@{"0"}' />
+
+            <ImageView
+                android:id="@+id/tv_del"
+                style="@style/otp_numbers"
+                android:onClick="@{data::delOnClick}"
+                android:src="@drawable/ic_logo"
+                app:layout_constraintEnd_toEndOf="@id/gl_v_4"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toEndOf="@id/tv_0"
+                app:layout_constraintTop_toTopOf="@id/tv_0" />
+
+            <!--add touch id-->
+            <TextView
+                android:id="@+id/tv_already"
+                style="@style/reg_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{data::touchIDOnClick}"
+                android:text="@string/add_touch_id"
+                android:visibility="@{data.obsIsTouchIDAvail ? (data.obsIsTouchIDEnabled ? View.GONE : View.VISIBLE) : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

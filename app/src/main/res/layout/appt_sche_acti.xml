@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.appt.appt_schedule.ApptScheActi"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <!--bg for toolbar-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/secondaryBG"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!--back text-->
+        <TextView
+            android:id="@+id/back_text"
+            style="@style/back_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!--main content-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_round_corner_top_30dp"
+            android:backgroundTint="@color/white"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/chat_bubble_padding_hori"
+            android:paddingTop="@dimen/chat_room_main_padding_verti"
+            android:paddingEnd="@dimen/chat_bubble_padding_hori"
+            android:paddingBottom="@dimen/chat_room_main_padding_verti"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/back_text">
+
+            <!--title-->
+            <TextView
+                android:id="@+id/tv_upcoming"
+                style="@style/bold_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@{data.obsRoomTitle}"
+                android:textAllCaps="true"
+                android:textColor="@color/darkGrey2"
+                android:textSize="14sp"
+                tools:text="@string/appointments"/>
+
+            <!--frag-->
+            <fragment
+                android:id="@+id/main_frag"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:navGraph="@navigation/appt_sche_navi" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

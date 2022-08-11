@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.registration.reg_0_on_board.fragments.RegOnBoardFrag0" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adapter="@{data.mAdapter}" />
+
+        <!--dots-->
+        <View
+            android:id="@+id/v_dot_0"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="@dimen/reg_main_hori"
+            android:background="@drawable/ic_dot"
+            android:backgroundTint="@{data.obsDotBg == 0 ? @color/blueAccent1 : @color/paleBlue1}"
+            app:layout_constraintBottom_toBottomOf="@id/btn_next"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_next"
+            tools:backgroundTint="@color/blueAccent1" />
+
+        <View
+            android:id="@+id/v_dot_1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/ic_dot"
+            android:backgroundTint="@{data.obsDotBg == 1 ? @color/blueAccent1 : @color/paleBlue1}"
+            app:layout_constraintBottom_toBottomOf="@id/v_dot_0"
+            app:layout_constraintStart_toEndOf="@id/v_dot_0"
+            app:layout_constraintTop_toTopOf="@id/v_dot_0"
+            tools:background="@drawable/ic_dot"
+            tools:backgroundTint="@color/paleBlue1" />
+
+        <View
+            android:id="@+id/v_dot_2"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/ic_dot"
+            android:backgroundTint="@{data.obsDotBg == 2 ? @color/blueAccent1 : @color/paleBlue1}"
+            app:layout_constraintBottom_toBottomOf="@id/v_dot_1"
+            app:layout_constraintStart_toEndOf="@id/v_dot_1"
+            app:layout_constraintTop_toTopOf="@id/v_dot_1"
+            tools:backgroundTint="@color/paleBlue1" />
+
+        <!--button-->
+        <Button
+            android:id="@+id/btn_next"
+            style="@style/reg_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/reg_main_hori"
+            android:layout_marginBottom="@dimen/reg_main_verti"
+            android:onClick="@{data::nextBtn}"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@{data.obsBtnTxt}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/next" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

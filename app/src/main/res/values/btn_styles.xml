@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="btn_r5_medium_14" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:background">@drawable/bg_round_corner_5dp</item>
+    </style>
+
+    <style name="btn_edit" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:fontFamily">@font/aktiv_grotesk_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/blueAccent3</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:background">@drawable/bg_round_corner_30dp</item>
+    </style>
+</resources>

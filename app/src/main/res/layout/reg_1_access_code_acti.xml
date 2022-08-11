@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.InputType"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.registration.reg_1_access_code.RegAccessCodeActi"/>
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/secondaryBG">
+
+            <!--chatbubble 1-->
+            <TextView
+                android:id="@+id/tv_chat_bbl_1"
+                style="@style/regular_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/reg_main_verti"
+                android:layout_marginEnd="@dimen/reg_main_hori"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/bg_chat_bubble_right_all_round"
+                android:paddingStart="@dimen/chat_bubble_padding_hori"
+                android:paddingTop="@dimen/chat_bubble_padding_verti"
+                android:paddingEnd="@dimen/chat_bubble_padding_hori"
+                android:paddingBottom="@dimen/chat_bubble_padding_verti"
+                android:text="@string/reg_1_chat_1"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@id/tv_chat_bbl_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"/>
+
+            <!--chatbubble 2-->
+            <TextView
+                android:id="@+id/tv_chat_bbl_2"
+                style="@style/regular_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/reg_main_hori"
+                android:layout_marginBottom="@dimen/reg_main_verti"
+                android:background="@drawable/bg_chat_bubble_right_btm_right"
+                android:paddingStart="@dimen/chat_bubble_padding_hori"
+                android:paddingTop="@dimen/chat_bubble_padding_verti"
+                android:paddingEnd="@dimen/chat_bubble_padding_hori"
+                android:paddingBottom="@dimen/chat_bubble_padding_verti"
+                android:text="@string/reg_1_chat_2"
+                android:textColor="@color/black"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/iv_penguin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/gl_v_1"
+                app:layout_constraintTop_toBottomOf="@id/tv_chat_bbl_1"/>
+
+            <!--guideline chat bbl 2 verti-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3"/>
+
+            <!--penguin img-->
+            <ImageView
+                android:id="@+id/iv_penguin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/reg_main_hori"
+                android:src="@{data.obsEditTxt.length > 0 ? @drawable/ic_penguin_close : @drawable/ic_profile_img}"
+                app:layout_constraintBottom_toTopOf="@id/card_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="1"
+                tools:src="@drawable/ic_profile_img"/>
+
+            <!--card bg-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_round_corner_top_30dp"
+                android:backgroundTint="@color/lightBlue1"
+                android:paddingStart="@dimen/reg_main_hori"
+                android:paddingTop="@dimen/reg_main_verti"
+                android:paddingEnd="@dimen/reg_main_hori"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <!--access code-->
+                <include
+                    android:id="@+id/et_access_code"
+                    layout="@layout/incl_edittext_enabled_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/reg_main_verti"
+                    android:layout_marginBottom="40dp"
+                    app:layout_constraintBottom_toTopOf="@id/btn_accept"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintVertical_chainStyle="spread_inside"
+                    bind:inputType="@{(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)}"
+                    bind:label="@{@string/access_code}"
+                    bind:maxLength='@{6}'
+                    bind:obsEditTxt="@={data.obsEditTxt}"
+                    bind:obsIsEditTxtEnabled="@={data.isEditTxtEnabled}"/>
+
+                <!--bind:keyboardDoneFunc="@{data.submitBtnFunc}"-->
+
+                <!--submit button-->
+                <Button
+                    android:id="@+id/btn_accept"
+                    style="@style/reg_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@{data.isBtnEnabled ? @drawable/bg_round_corner_8dp : @drawable/bg_round_corner_8dp_white50a}"
+                    android:backgroundTint="@color/blueAccent1"
+                    android:enabled="@{data.isBtnEnabled}"
+                    android:onClick="@{data::submitBtn}"
+                    android:text="@string/submit"
+                    app:layout_constraintBottom_toTopOf="@id/tv_already"
+                    app:layout_constraintTop_toBottomOf="@id/et_access_code"/>
+
+                <!--already hv account?-->
+                <TextView
+                    android:id="@+id/tv_already"
+                    style="@style/reg_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/reg_main_verti"
+                    android:text="@string/already_have_acc"
+                    android:textColor="@color/grey8"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_login"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    style="@style/reg_link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{data::loginBtn}"
+                    android:padding="5dp"
+                    android:text="@string/login"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_already"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_already"
+                    app:layout_constraintTop_toTopOf="@id/tv_already"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

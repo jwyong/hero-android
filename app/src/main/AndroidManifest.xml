@@ -1,0 +1,171 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ntu.hero">
+
+    <!-- for gps-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!--for motion-->
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+
+    <!--for call logs-->
+    <!--TEMP - disabled for google play permissions policy rejection-->
+    <!--<uses-permission android:name="android.permission.READ_CALL_LOG" />-->
+
+    <!--for TouchID-->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/> <!-- for <API 28 -->
+
+    <!-- for camera-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name="com.ntu.hero.Hero"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
+
+        <!-- PROVIDERS -->
+        <!--file provider-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/app_fp_name"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path">
+
+            </meta-data>
+        </provider>
+
+        <!-- SERVICES -->
+        <!-- accessibility for app usage -->
+        <service
+            android:name="com.ntu.hero.services.AccessibilitySrv"
+            android:description="@string/access_srv_description"
+            android:label="@string/access_srv_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service"/>
+        </service>
+
+        <!-- intent service for motion data capturing-->
+        <receiver
+            android:name=".work_manager.gps_motion.MotionTransitionIS"
+            android:exported="false" />
+
+        <!--main activity-->
+        <activity android:name="com.ntu.hero.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+
+                <!--for google search indexable warning-->
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+
+        <!--GLOBAL-->
+        <!--welcome back-->
+        <activity
+            android:name="com.ntu.hero.welcome_back.WelcomeBackActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <!--REGISTRATION-->
+        <activity
+            android:name="com.ntu.hero.registration.reg_0_on_board.RegOnBoardActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name="com.ntu.hero.registration.reg_1_access_code.RegAccessCodeActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name="com.ntu.hero.registration.reg_2_create_acc.RegCreateAccActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name="com.ntu.hero.registration.reg_3_quick_login.RegQuickLoginActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name="com.ntu.hero.registration.reg_4_profile.RegProfileActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <!--LOGIN-->
+        <activity
+            android:name=".registration.login.LoginActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <!--HOME-->
+        <activity
+            android:name="com.ntu.hero.home.HomeActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <!--CHAT-->
+        <activity
+            android:name=".chat.ChatActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name=".chat.ChatSubmitActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name=".chat.chat_edit_acti.ChatEditActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <!--APPOINTMENT-->
+        <activity
+            android:name=".appt.ApptMainActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name=".appt.appt_schedule.ApptScheActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <!--PROFILE-->
+        <activity
+            android:name=".profile.ProfileMainActi"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
+    </application>
+</manifest>

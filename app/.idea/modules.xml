@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1936228599/Hero.iml" filepath="$PROJECT_DIR$/.idea/modules/-1936228599/Hero.iml" group="Hero" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" group="Hero/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-443568227/debug_ghost.iml" filepath="$PROJECT_DIR$/.idea/modules/-443568227/debug_ghost.iml" group="Hero/debug_ghost" />
+    </modules>
+  </component>
+</project>

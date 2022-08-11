@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.profile.frags.ProfileFrag0Main"/>
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/chat_bubble_padding_hori"
+            android:paddingTop="@dimen/reg_main_verti"
+            android:paddingEnd="@dimen/chat_bubble_padding_hori"
+            android:paddingBottom="@dimen/reg_main_verti">
+
+            <!--profile img-->
+            <!--profile img-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/iv_profile_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:glidePropic="@{data.obsProfileImg}"
+                    android:src="@drawable/ic_profile_img"/>
+            </androidx.cardview.widget.CardView>
+
+            <!--profile name-->
+            <TextView
+                android:id="@+id/tv_profile_name"
+                style="@style/bold_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="@{data.obsProfileName}"
+                android:textColor="@color/darkGrey1"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/tv_role"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/iv_profile_img"
+                app:layout_constraintTop_toTopOf="@id/iv_profile_img"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Tiffany Ong"/>
+
+            <!--role-->
+            <TextView
+                android:id="@+id/tv_role"
+                style="@style/medium_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.obsRole}"
+                android:textColor="@color/grey9"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="@id/iv_profile_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@id/tv_profile_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_profile_name"
+                tools:text="@string/profile_history"/>
+
+            <!--profile items-->
+            <LinearLayout
+                android:id="@+id/ll_profile_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="35dp"
+                android:orientation="vertical"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintBottom_toTopOf="@id/tv_logout"
+                app:layout_constraintTop_toBottomOf="@id/iv_profile_img"
+                app:layout_constraintVertical_bias="0">
+
+                <include
+                    layout="@layout/incl_profile_main_item"
+                    app:data="@{data}"
+                    app:desc="@{@string/profile_settings_desc}"
+                    app:title="@{@string/profile_settings}"/>
+
+                <include
+                    layout="@layout/incl_profile_main_item"
+                    app:data="@{data}"
+                    app:desc="@{@string/profile_security_desc}"
+                    app:title="@{@string/profile_security}"/>
+
+                <include
+                    layout="@layout/incl_profile_main_item"
+                    app:data="@{data}"
+                    app:desc="@{@string/profile_noti_desc}"
+                    app:title="@{@string/profile_noti}"/>
+
+                <include
+                    layout="@layout/incl_profile_main_item"
+                    app:data="@{data}"
+                    app:desc="@{@string/profile_history_desc}"
+                    app:title="@{@string/profile_history}"/>
+
+                <include
+                    layout="@layout/incl_profile_main_item"
+                    app:data="@{data}"
+                    app:desc="@{@string/profile_perms_desc}"
+                    app:title="@{@string/profile_perms}"/>
+
+            </LinearLayout>
+
+            <!--logout-->
+            <TextView
+                android:id="@+id/tv_logout"
+                style="@style/regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{data::logoutBtnOnClick}"
+                android:padding="10dp"
+                android:text="@string/logout"
+                android:textColor="@color/grey9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

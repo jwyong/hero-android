@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--normal form item with label and edittext field-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="obsIsError"
+            type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="obsEditTxt"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+
+        <variable
+            name="label"
+            type="String" />
+
+        <variable
+            name="hint"
+            type="String" />
+
+        <variable
+            name="inputType"
+            type="Integer" />
+
+        <variable
+            name="maxLength"
+            type="Integer" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/field_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/reg_form_verti"
+            android:text="@{label}"
+            android:textColor="@{obsIsError ? @color/red : @color/paleBlue1}"
+            tools:text="Label"
+            tools:textColor="@color/paleBlue1" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                style="@style/edit_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@{obsIsError ? @drawable/bg_round_border_red_8dp : @drawable/bg_round_corner_8dp_white50a}"
+                android:hint="@{hint}"
+                android:inputType="@{inputType}"
+                android:maxLength="@{maxLength}"
+                android:text="@={obsEditTxt}"
+                android:textColor="@{obsIsError ? @color/red : @color/black}"
+                tools:background="@drawable/bg_round_corner_8dp_white50a" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+</layout>

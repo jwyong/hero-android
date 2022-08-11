@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.InputType"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.registration.reg_4_profile.RegProfileActi"/>
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/secondaryBG">
+
+            <!--guideline hori-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_h_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="@dimen/reg_title_gl_h_percent"/>
+
+            <!--guideline verti-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_v_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.54"/>
+
+            <!-- title1 -->
+            <TextView
+                style="@style/reg_heading_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/reg_main_hori"
+                android:text="@string/reg_4_profile_title_1"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/tv_title_2"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <!-- title2 -->
+            <TextView
+                android:id="@+id/tv_title_2"
+                style="@style/reg_heading_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/reg_main_hori"
+                android:text="@string/reg_4_profile_title_2"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="@id/gl_h_1"
+                app:layout_constraintEnd_toStartOf="@id/gl_v_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/gl_h_1"/>
+
+            <!--guideline card bg hori-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_h_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.23"/>
+
+            <!--card bg-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/reg_main_verti"
+                android:background="@drawable/bg_round_corner_top_30dp"
+                android:backgroundTint="@color/lightBlue1"
+                android:paddingStart="@dimen/reg_main_hori"
+                android:paddingTop="@dimen/reg_main_verti"
+                android:paddingEnd="@dimen/reg_main_hori"
+                android:paddingBottom="@dimen/reg_main_verti"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_min="wrap"
+                app:layout_constraintTop_toBottomOf="@id/gl_h_card">
+
+                <!--img-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/iv_profile_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/reg_main_verti"
+                    android:onClick="@{data::profileImgOnClick}"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:glidePropic="@{data.obsProfileImg}"
+                        android:src="@drawable/ic_profile_img"/>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!--name-->
+                <include
+                    android:id="@+id/incl_name"
+                    layout="@layout/incl_edittext_enabled_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/reg_main_verti"
+                    android:layout_marginBottom="@dimen/reg_main_verti"
+                    app:layout_constraintBottom_toTopOf="@id/btn_register"
+                    app:layout_constraintTop_toBottomOf="@id/iv_profile_img"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintVertical_chainStyle="spread_inside"
+                    bind:inputType="@{(InputType.TYPE_TEXT_FLAG_CAP_WORDS)}"
+                    bind:label="@{@string/reg_4_profile_field_label}"
+                    bind:maxLength='@{100}'
+                    bind:obsEditTxt="@={data.obsEditTxt}"
+                    bind:obsIsEditTxtEnabled="@={data.isEditTxtEnabled}"/>
+
+                <Button
+                    android:id="@+id/btn_register"
+                    style="@style/reg_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@{data.isBtnEnabled ? @drawable/bg_round_corner_8dp : @drawable/bg_round_corner_8dp_white50a}"
+                    android:backgroundTint="@color/blueAccent1"
+                    android:enabled="@{data.isBtnEnabled}"
+                    android:onClick="@{data::createBtn}"
+                    android:text="@string/create_profile"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/incl_name"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

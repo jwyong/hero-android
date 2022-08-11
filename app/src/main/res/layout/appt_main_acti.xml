@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.appt.ApptMainActi"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <!--bg for toolbar-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/secondaryBG"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!--back text-->
+        <TextView
+            android:id="@+id/back_text"
+            style="@style/back_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!--main content-->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_round_corner_top_30dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/back_text">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/chat_bubble_padding_hori"
+                android:paddingTop="@dimen/chat_room_main_padding_verti"
+                android:paddingEnd="@dimen/chat_bubble_padding_hori"
+                android:paddingBottom="@dimen/chat_room_main_padding_verti">
+
+                <!--upcoming-->
+                <TextView
+                    android:id="@+id/tv_upcoming"
+                    style="@style/bold_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/appt_upcoming"
+                    android:textColor="@color/darkGrey2"
+                    app:layout_constraintBottom_toTopOf="@id/recycler_view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintVertical_chainStyle="packed"/>
+
+                <!--upcoming appt list-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:overScrollMode="never"
+                    android:paddingBottom="@dimen/chat_room_main_padding_verti"
+                    app:layout_constrainedHeight="true"
+                    app:layout_constraintBottom_toTopOf="@id/ll_services"
+                    app:layout_constraintTop_toBottomOf="@id/tv_upcoming"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:itemCount="12"
+                    tools:listitem="@layout/appt_upcoming_item"/>
+
+                <!--services-->
+                <TextView
+                    android:id="@+id/tv_services"
+                    style="@style/bold_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/appt_services"
+                    android:textColor="@color/darkGrey2"
+                    app:layout_constraintBottom_toTopOf="@id/ll_services"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recycler_view"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="@string/appt_services"/>
+
+                <!--services list-->
+                <LinearLayout
+                    android:id="@+id/ll_services"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/tv_services"
+                    app:layout_constraintVertical_bias="0">
+
+                    <include
+                        layout="@layout/incl_appt_services_item"
+                        app:data="@{data}"
+                        app:img="@{@drawable/ic_profile_img}"
+                        app:title="@{@string/ntu_clinic}"/>
+
+                    <include
+                        layout="@layout/incl_appt_services_item"
+                        app:data="@{data}"
+                        app:img="@{@drawable/ic_profile_img}"
+                        app:title="@{@string/ntu_counsel}"/>
+
+                    <include
+                        layout="@layout/incl_appt_services_item"
+                        app:data="@{data}"
+                        app:img="@{@drawable/ic_profile_img}"
+                        app:title="@{@string/smoking_clinic}"/>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <!--appt details with blurred bg-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{data.obsSelApptItem == null ? View.GONE : View.VISIBLE}"
+            tools:visibility="gone">
+
+            <!--blurred bg-->
+            <ImageView
+                android:id="@+id/v_blurred_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="@{data::hideApptDetPopup}"
+                tools:background="@color/black70a"/>
+
+            <!--appt dets-->
+            <include
+                layout="@layout/incl_appt_dets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/iv_close_btn"
+                android:layout_marginStart="@dimen/reg_main_hori"
+                android:layout_marginTop="@dimen/reg_main_verti"
+                android:layout_marginEnd="@dimen/reg_main_hori"
+                android:layout_marginBottom="30dp"
+                app:btnLabel="@{data.obsBtnLabel}"
+                app:btnOnClick="@{() -> data.rescheBtnOnClick()}"
+                app:data="@{data.obsSelApptItem}"
+                app:isCreation="@{false}"
+                app:obsIsCancelling="@{data.obsIsCancelling}"
+                app:textOnClick="@{(v) -> data.cancelAppt(1)}"/>
+
+            <!--close btn-->
+            <ImageView
+                android:id="@+id/iv_close_btn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/bg_circle_close_btn"
+                android:onClick="@{data::hideApptDetPopup}"
+                android:padding="15dp"
+                android:src="@drawable/ic_toolbar_exit_black"/>
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

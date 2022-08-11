@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reg_navi.xml"
+    app:startDestination="@id/WBFrag0TouchID">
+    <fragment
+        android:id="@+id/WBFrag0TouchID"
+        android:name="com.ntu.hero.welcome_back.fragments.WBFrag0TouchID"
+        android:label="WBFrag0TouchID">
+        <action
+            android:id="@+id/action_WBFrag0TouchID_to_WBFrag1PinCode"
+            app:destination="@id/WBFrag1PinCode"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/WBFrag1PinCode"
+        android:name="com.ntu.hero.welcome_back.fragments.WBFrag1PinCode"
+        android:label="WBFrag1PinCode" />
+</navigation>

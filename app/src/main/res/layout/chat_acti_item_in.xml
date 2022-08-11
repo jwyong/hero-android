@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="showProfileImg"
+            type="Boolean"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.api.api_models.ChatItemModel"/>
+
+        <variable
+            name="chatActi"
+            type="com.ntu.hero.chat.ChatActi"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@{showProfileImg? @dimen/padding_10 : @dimen/padding_5}"
+        tools:paddingTop="@dimen/padding_10">
+
+        <ImageView
+            android:id="@+id/iv_profile_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_profile_img"
+            android:visibility="@{showProfileImg? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/ll_chat_bbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@{showProfileImg? @drawable/bg_chat_bubble_right_top_left : @drawable/bg_chat_bubble_right_all_round}"
+            android:backgroundTint="@color/grey2"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/chat_bubble_padding_hori"
+            android:paddingTop="@dimen/chat_bubble_padding_verti"
+            android:paddingEnd="@dimen/chat_bubble_padding_hori"
+            android:paddingBottom="@dimen/chat_bubble_padding_verti"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@id/gl_v_1"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/iv_profile_img"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/bg_chat_bubble_right_top_left">
+
+            <!--question-->
+            <TextView
+                style="@style/regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.nonBoldedText}"
+                android:textColor="@color/black"
+                tools:text="Hello, I am Hero"/>
+
+            <!--empty spacing-->
+            <TextView
+                style="@style/regular_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:visibility="@{data.boldedText.length() > 0 ? View.VISIBLE : View.GONE}"/>
+
+            <!--answer-->
+            <TextView
+                style="@style/bold_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.boldedText}"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:visibility="@{data.boldedText.length() > 0 ? View.VISIBLE : View.GONE}"
+                tools:text="Yes, I currently smoke"/>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_v_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

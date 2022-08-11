@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.home.HomeActi"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryBG"
+        android:clipToPadding="false">
+
+        <!--profile topbar-->
+        <RelativeLayout
+            android:id="@+id/rl_topbar"
+            style="@style/padding_hori"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!--profile name-->
+            <TextView
+                style="@style/bold_18"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="20dp"
+                android:layout_toStartOf="@id/tv_noti_badge"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{`Hello, ` + data.obsProfileName}"
+                android:textColor="@color/white"
+                tools:text="Hello, Tiffany"/>
+
+            <!--notification (appt)-->
+            <TextView
+                android:id="@+id/tv_noti_badge"
+                android:onClick="@{data::notiBadgeOnClick}"
+                style="@style/medium_12"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@id/iv_profile_img"
+                android:background="@drawable/ic_circle_fill"
+                android:text="@{Integer.toString(data.obsApptNoti)}"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:visibility="@{data.obsApptNoti > 0? View.VISIBLE : View.GONE}"
+                tools:text="3"
+                tools:visibility="visible"/>
+
+            <!--profile img-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/iv_profile_img"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:onClick="@{data::profileBtnOnClick}"
+                android:layout_alignParentEnd="true"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:glidePropic="@{data.obsProfileImg}"
+                    android:src="@drawable/ic_profile_img"/>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <!--main title bg-->
+        <View
+            android:id="@+id/v_main_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_round_corner_top_30dp"
+            android:backgroundTint="@color/secondaryBG"
+            android:elevation="1dp"
+            app:layout_constraintTop_toBottomOf="@id/rl_topbar"/>
+
+        <!--main title text-->
+        <TextView
+            android:id="@+id/tv_main_title"
+            style="@style/bold_28"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="2dp"
+            android:paddingStart="@dimen/reg_main_hori"
+            android:paddingTop="@dimen/reg_main_verti"
+            android:paddingEnd="@dimen/reg_main_hori"
+            android:paddingBottom="@dimen/reg_main_verti"
+            android:text="@{data.obsTitle}"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="@id/v_main_bg"
+            tools:text="@string/home_title"/>
+
+        <!--scrollable activity list-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_round_corner_top_30dp"
+            android:backgroundTint="@color/white"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:paddingTop="@dimen/reg_main_verti"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@id/btm_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_main_title">
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
+
+            <!--activity title-->
+            <TextView
+                android:id="@+id/tv_acti_title"
+                style="@style/bold_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/reg_main_hori"
+                android:layout_marginTop="15dp"
+                android:text="@string/activity"
+                android:textColor="@color/darkGrey2"/>
+
+            <!--recyclerview-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/reg_main_hori"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="@dimen/reg_main_hori"
+                android:overScrollMode="never"
+                app:layout_constraintTop_toBottomOf="@id/tv_acti_title"
+                tools:listitem="@layout/home_acti_item"/>
+            <!--</LinearLayout>-->
+        </LinearLayout>
+
+        <!--sticky bottom bg-->
+        <View
+            android:id="@+id/btm_bg"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white"
+            android:elevation="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!--3 btm icons-->
+        <ImageView
+            android:id="@+id/iv_intervention"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:elevation="31dp"
+            android:src="@drawable/ic_reg_0_img_0"
+            app:layout_constraintBottom_toBottomOf="@id/btm_bg"
+            app:layout_constraintEnd_toStartOf="@id/iv_hero"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btm_bg"/>
+
+        <ImageView
+            android:id="@+id/iv_hero"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="31dp"
+            android:onClick="@{data::chatBtnOnClick}"
+            android:src="@drawable/ic_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_appt"
+            app:layout_constraintStart_toEndOf="@id/iv_intervention"/>
+
+        <ImageView
+            android:id="@+id/iv_appt"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:elevation="31dp"
+            android:onClick="@{data::apptBtnOnClick}"
+            android:src="@drawable/ic_reg_0_img_1"
+            app:layout_constraintBottom_toBottomOf="@id/btm_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_hero"
+            app:layout_constraintTop_toTopOf="@id/btm_bg"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

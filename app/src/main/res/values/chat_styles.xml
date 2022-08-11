@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="chat_bubble_padding" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:padding">15dp</item>
+    </style>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="chatActi"
+            type="com.ntu.hero.chat.ChatActi"/>
+
+        <variable
+            name="data"
+            type="com.ntu.hero.api.api_models.ChatItemModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_v_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25"/>
+
+        <TextView
+            style="@style/regular_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_chat_bubble_right_top_right"
+            android:backgroundTint="@{chatActi.obsBgColour}"
+            android:paddingStart="@dimen/chat_bubble_padding_hori"
+            android:paddingTop="@dimen/chat_bubble_padding_verti"
+            android:paddingEnd="@dimen/chat_bubble_padding_hori"
+            android:paddingBottom="@dimen/chat_bubble_padding_verti"
+            android:text="@{data.nonBoldedText}"
+            android:textColor="@{chatActi.obsTextColour}"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@id/iv_profile_img"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="@id/gl_v_1"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:backgroundTint="@color/darkBlue1"
+            tools:text="Yes, please"
+            tools:textColor="@color/white"/>
+
+        <ImageView
+            android:id="@+id/iv_profile_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:glidePropicCircle="@{chatActi.obsProfileImg}"
+            android:src="@drawable/ic_profile_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

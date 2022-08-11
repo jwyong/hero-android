@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="String"/>
+
+        <variable
+            name="chatActi"
+            type="com.ntu.hero.chat.ChatActi"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/chat_room_main_padding_hori"
+        android:paddingEnd="@dimen/chat_room_main_padding_hori">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_circle"
+            android:backgroundTint="@{chatActi.obsTextColour}"
+            android:src="@drawable/ic_selection"
+            android:tint="@{chatActi.obsTextColour}"
+            tools:backgroundTint="@color/primaryBG"
+            tools:src="@drawable/ic_arrow_drop_down_black_24dp"
+            tools:tint="@color/primaryBG"/>
+
+        <TextView
+            style="@style/medium_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingTop="@dimen/chat_room_main_padding_verti"
+            android:paddingEnd="15dp"
+            android:paddingBottom="@dimen/chat_room_main_padding_verti"
+            android:text="@{data}"
+            android:textColor="@{chatActi.obsTextColour}"
+            tools:text="Traditional Medicines"
+            tools:textColor="@color/primaryBG"/>
+
+    </LinearLayout>
+</layout>
