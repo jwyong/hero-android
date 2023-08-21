@@ -1,0 +1,2 @@
+# hero-android
+Hero app: a medical tracking app which uses several Accessibility features to track health statistics of the user, way before the invention of smart watches. The detection protocols include motion detection (walk, run, etc), GPS location tracking (route history), and phone use time analysis. Biometrics authentication was implemented on the app, as well as a chat-bot-like surveying module, where surveys were done in a chat-bot style, with highly customised backend responses sent to the app to display a multitude of custom UI for user interactions.
